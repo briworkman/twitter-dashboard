@@ -35,6 +35,9 @@ import {
   START_FETCHING_FAMILY,
   FAMILY_FETCH_SUCCESS,
   FAMILY_FETCH_FAILURE,
+  START_FETCHING_TRENDING,
+  TRENDING_FETCH_SUCCESS,
+  TRENDING_FETCH_FAILURE,
 } from '../actions';
 
 const initialState = {
@@ -50,6 +53,7 @@ const initialState = {
   romance: [],
   thriller: [],
   family: [],
+  trending_today: [],
   isFetching: false,
   error: '',
 };
@@ -279,6 +283,25 @@ const reducer = (state = initialState, action) => {
         family: action.payload,
       };
     case FAMILY_FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false,
+      };
+    case START_FETCHING_TRENDING:
+      return {
+        ...state,
+        isFetching: true,
+        error: '',
+      };
+    case TRENDING_FETCH_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+        trending_today: action.payload,
+      };
+    case TRENDING_FETCH_FAILURE:
       return {
         ...state,
         error: action.payload,

@@ -48,6 +48,10 @@ export const START_FETCHING_FAMILY = 'START_FETCHING_FAMILY';
 export const FAMILY_FETCH_SUCCESS = 'FAMILY_FETCH_SUCCESS';
 export const FAMILY_FETCH_FAILURE = 'FAMILY_FETCH_FAILURE';
 
+export const START_FETCHING_TRENDING = 'START_FETCHING_TRENDING';
+export const TRENDING_FETCH_SUCCESS = 'TRENDING_FETCH_SUCCESS';
+export const TRENDING_FETCH_FAILURE = 'TRENDING_FETCH_FAILURE';
+
 let URL = process.env.REACT_APP_API_URL;
 let KEY = process.env.REACT_APP_API_KEY;
 
@@ -272,6 +276,24 @@ export const fetchFamily = () => (dispatch) => {
     .catch((err) =>
       dispatch({
         type: FAMILY_FETCH_FAILURE,
+        payload: err.response,
+      })
+    );
+};
+
+export const fetchTrending = () => (dispatch) => {
+  dispatch({ type: START_FETCHING_TRENDING });
+  axios
+    .get(`${URL}trending/movie/day?api_key=${KEY}`)
+    .then((res) => {
+      dispatch({
+        type: TRENDING_FETCH_SUCCESS,
+        payload: res.data.results,
+      });
+    })
+    .catch((err) =>
+      dispatch({
+        type: TRENDING_FETCH_FAILURE,
         payload: err.response,
       })
     );

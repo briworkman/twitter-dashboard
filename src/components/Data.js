@@ -12,6 +12,7 @@ import {
   fetchRomance,
   fetchThriller,
   fetchFamily,
+  fetchTrending,
 } from '../actions';
 
 function Data(data) {
@@ -27,6 +28,7 @@ function Data(data) {
     data.fetchRomance();
     data.fetchThriller();
     data.fetchFamily();
+    data.fetchTrending();
   }, []);
 
   console.log('popular: ', data.popular);
@@ -40,6 +42,7 @@ function Data(data) {
   console.log('romance: ', data.romance);
   console.log('thriller: ', data.thriller);
   console.log('family: ', data.family);
+  console.log('trending: ', data.trending_today);
 
   return (
     <div>
@@ -61,6 +64,7 @@ const mapStateToProps = (state) => {
     romance: state.romance,
     thriller: state.thriller,
     family: state.family,
+    trending_today: state.trending_today,
     isFetching: state.isFetching,
     error: state.error,
   };
@@ -78,4 +82,5 @@ export default connect(mapStateToProps, {
   fetchRomance,
   fetchThriller,
   fetchFamily,
+  fetchTrending,
 })(Data);

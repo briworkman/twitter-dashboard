@@ -1,7 +1,15 @@
-import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE } from '../actions';
+import {
+  START_FETCHING_POPULAR,
+  POPULAR_FETCH_SUCCESS,
+  POPULAR_FETCH_FAILURE,
+  START_FETCHING_NOW_PLAYING,
+  NOW_PLAYING_FETCH_SUCCESS,
+  NOW_PLAYING_FETCH_FAILURE,
+} from '../actions';
 
 const initialState = {
-  Movies: [],
+  popular: [],
+  now_playing: [],
   isFetching: false,
   error: '',
 };
@@ -9,20 +17,39 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   console.log(state);
   switch (action.type) {
-    case START_FETCHING:
+    case START_FETCHING_POPULAR:
       return {
         ...state,
         isFetching: true,
         error: '',
       };
-    case FETCH_SUCCESS:
+    case POPULAR_FETCH_SUCCESS:
       return {
         ...state,
         isFetching: false,
         error: '',
-        Movies: action.payload,
+        popular: action.payload,
       };
-    case FETCH_FAILURE:
+    case POPULAR_FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false,
+      };
+    case START_FETCHING_NOW_PLAYING:
+      return {
+        ...state,
+        isFetching: true,
+        error: '',
+      };
+    case NOW_PLAYING_FETCH_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+        now_playing: action.payload,
+      };
+    case NOW_PLAYING_FETCH_FAILURE:
       return {
         ...state,
         error: action.payload,

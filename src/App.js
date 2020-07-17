@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
+import logo from './assets/logo.svg';
 import Data from './components/Data';
 
 function App() {
   require('dotenv').config();
   return (
     <div className='App'>
-      <h1> Hello Twitter :)</h1>
+      <img src={logo} alt='logo' />
       <Data />
     </div>
   );

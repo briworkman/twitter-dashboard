@@ -5,6 +5,13 @@ import {
   fetchNowPlaying,
   fetchTopRated,
   fetchUpcoming,
+  fetchHorror,
+  fetchAction,
+  fetchComedy,
+  fetchDocumentary,
+  fetchRomance,
+  fetchThriller,
+  fetchFamily,
 } from '../actions';
 
 function Data(data) {
@@ -13,12 +20,26 @@ function Data(data) {
     data.fetchNowPlaying();
     data.fetchTopRated();
     data.fetchUpcoming();
+    data.fetchHorror();
+    data.fetchAction();
+    data.fetchComedy();
+    data.fetchDocumentary();
+    data.fetchRomance();
+    data.fetchThriller();
+    data.fetchFamily();
   }, []);
 
   console.log('popular: ', data.popular);
   console.log('now playing: ', data.now_playing);
   console.log('top rated: ', data.top_rated);
   console.log('upcoming: ', data.upcoming);
+  console.log('horror: ', data.horror);
+  console.log('action: ', data.action);
+  console.log('comedy: ', data.comedy);
+  console.log('documentary: ', data.documentary);
+  console.log('romance: ', data.romance);
+  console.log('thriller: ', data.thriller);
+  console.log('family: ', data.family);
 
   return (
     <div>
@@ -33,6 +54,13 @@ const mapStateToProps = (state) => {
     now_playing: state.now_playing,
     top_rated: state.top_rated,
     upcoming: state.upcoming,
+    horror: state.horror,
+    action: state.action,
+    comedy: state.comedy,
+    documentary: state.documentary,
+    romance: state.romance,
+    thriller: state.thriller,
+    family: state.family,
     isFetching: state.isFetching,
     error: state.error,
   };
@@ -43,4 +71,11 @@ export default connect(mapStateToProps, {
   fetchNowPlaying,
   fetchTopRated,
   fetchUpcoming,
+  fetchHorror,
+  fetchAction,
+  fetchComedy,
+  fetchDocumentary,
+  fetchRomance,
+  fetchThriller,
+  fetchFamily,
 })(Data);

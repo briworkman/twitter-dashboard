@@ -31,18 +31,62 @@ function Data(data) {
     data.fetchTrending();
   }, []);
 
-  console.log('popular: ', data.popular);
-  console.log('now playing: ', data.now_playing);
-  console.log('top rated: ', data.top_rated);
-  console.log('upcoming: ', data.upcoming);
-  console.log('horror: ', data.horror);
-  console.log('action: ', data.action);
-  console.log('comedy: ', data.comedy);
-  console.log('documentary: ', data.documentary);
-  console.log('romance: ', data.romance);
-  console.log('thriller: ', data.thriller);
-  console.log('family: ', data.family);
-  console.log('trending: ', data.trending_today);
+  let movie_data = [
+    {
+      title: 'Trending',
+      data: data.trending_today,
+    },
+    {
+      title: 'Popular',
+      data: data.popular,
+    },
+    {
+      title: 'Now Playing',
+      data: data.now_playing,
+    },
+    {
+      title: 'Top Rated',
+      data: data.top_rated,
+    },
+    {
+      title: 'Upcoming',
+      data: data.upcoming,
+    },
+    {
+      title: 'Horror',
+      data: data.horror,
+    },
+    {
+      title: 'Action',
+      data: data.action,
+    },
+    {
+      title: 'Comedy',
+      data: data.comedy,
+    },
+    {
+      title: 'Documentary',
+      data: data.documentary,
+    },
+    {
+      title: 'Romance',
+      data: data.romance,
+    },
+    {
+      title: 'Thriller',
+      data: data.thriller,
+    },
+    {
+      title: 'Family',
+      data: data.family,
+    },
+    {
+      title: 'Trending Today',
+      data: data.trending_today,
+    },
+  ];
+
+  console.log('movie_data: ', movie_data);
 
   return (
     <div>

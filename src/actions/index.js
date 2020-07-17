@@ -60,7 +60,7 @@ export const fetchPopular = () => (dispatch) => {
   axios
     .get(`${URL}movie/popular?api_key=${KEY}`)
     .then((res) => {
-      dispatch({ type: POPULAR_FETCH_SUCCESS, payload: res.data.results });
+      dispatch({ type: POPULAR_FETCH_SUCCESS, payload: res.data });
     })
     .catch((err) =>
       dispatch({ type: POPULAR_FETCH_FAILURE, payload: err.response })

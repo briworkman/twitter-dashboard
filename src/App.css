@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #151515;
 }
 
 code {
@@ -49,4 +50,19 @@ code {
   to {
     transform: rotate(360deg);
   }
+}
+
+.movies {
+  display: flex;
+  overflow-y: scroll;
+}
+
+.movies img {
+  width: 200px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.poster-container {
+  display: flex;
 }

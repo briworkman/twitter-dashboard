@@ -4,7 +4,6 @@ import Movies from './Movies';
 
 import { connect } from 'react-redux';
 import {
-  fetchPopular,
   fetchNowPlaying,
   fetchTopRated,
   fetchUpcoming,
@@ -20,7 +19,6 @@ import {
 
 function Data(data) {
   useEffect(() => {
-    data.fetchPopular();
     data.fetchNowPlaying();
     data.fetchTopRated();
     data.fetchUpcoming();
@@ -38,10 +36,6 @@ function Data(data) {
     {
       title: 'Trending',
       data: data.trending_today,
-    },
-    {
-      title: 'Popular',
-      data: data.popular,
     },
     {
       title: 'Now Playing',
@@ -89,11 +83,8 @@ function Data(data) {
     },
   ];
 
-  console.log('movie_data: ', movie_data);
-
   return (
     <div>
-      <h1>test</h1>
       <Movies movies={movie_data} />
     </div>
   );
@@ -101,7 +92,6 @@ function Data(data) {
 
 const mapStateToProps = (state) => {
   return {
-    popular: state.popular,
     now_playing: state.now_playing,
     top_rated: state.top_rated,
     upcoming: state.upcoming,
@@ -119,7 +109,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  fetchPopular,
   fetchNowPlaying,
   fetchTopRated,
   fetchUpcoming,

@@ -1,23 +1,24 @@
 import React from 'react';
 
 function Movies(props) {
+  let IMG_URL = process.env.REACT_APP_IMG_URL;
   return (
     <div>
       {props.movies.map((movie) => {
         return (
           <div>
             <h1>{movie.title}</h1>
-            {console.log(movie.data)}
-            <div>
+            <div className='movies'>
               {movie.data.length >= 1
                 ? movie.data.map((data) => {
+                    let poster = `${IMG_URL}w500${data.poster_path}`;
                     return (
-                      <div>
-                        <h3>{data.title}</h3>
+                      <div className='poster-container'>
+                        <img src={poster} />
                       </div>
                     );
                   })
-                : console.log('...loading')}
+                : null}
             </div>
           </div>
         );

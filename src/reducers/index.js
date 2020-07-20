@@ -1,7 +1,4 @@
 import {
-  START_FETCHING_POPULAR,
-  POPULAR_FETCH_SUCCESS,
-  POPULAR_FETCH_FAILURE,
   START_FETCHING_NOW_PLAYING,
   NOW_PLAYING_FETCH_SUCCESS,
   NOW_PLAYING_FETCH_FAILURE,
@@ -60,25 +57,6 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case START_FETCHING_POPULAR:
-      return {
-        ...state,
-        isFetching: true,
-        error: '',
-      };
-    case POPULAR_FETCH_SUCCESS:
-      return {
-        ...state,
-        isFetching: false,
-        error: '',
-        popular: action.payload,
-      };
-    case POPULAR_FETCH_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-        isFetching: false,
-      };
     case START_FETCHING_NOW_PLAYING:
       return {
         ...state,

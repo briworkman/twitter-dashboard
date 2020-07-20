@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react';
+
+import Movies from './Movies';
+
 import { connect } from 'react-redux';
 import {
   fetchPopular,
@@ -91,6 +94,7 @@ function Data(data) {
   return (
     <div>
       <h1>test</h1>
+      <Movies movies={movie_data} />
     </div>
   );
 }

@@ -54,6 +54,7 @@ export const TRENDING_FETCH_FAILURE = 'TRENDING_FETCH_FAILURE';
 
 let URL = process.env.REACT_APP_API_URL;
 let KEY = process.env.REACT_APP_API_KEY;
+let GENRE = process.env.REACT_APP_GENRE_URL;
 
 export const fetchPopular = () => (dispatch) => {
   dispatch({ type: START_FETCHING_POPULAR });
@@ -124,9 +125,7 @@ export const fetchUpcoming = () => (dispatch) => {
 export const fetchHorror = () => (dispatch) => {
   dispatch({ type: START_FETCHING_HORROR });
   axios
-    .get(
-      `${URL}discover/movie?api_key=${KEY}&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=27`
-    )
+    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=27`)
     .then((res) => {
       dispatch({
         type: HORROR_FETCH_SUCCESS,
@@ -144,9 +143,7 @@ export const fetchHorror = () => (dispatch) => {
 export const fetchAction = () => (dispatch) => {
   dispatch({ type: START_FETCHING_ACTION });
   axios
-    .get(
-      `${URL}discover/movie?api_key=${KEY}&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=28`
-    )
+    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=28`)
     .then((res) => {
       dispatch({
         type: ACTION_FETCH_SUCCESS,
@@ -164,9 +161,7 @@ export const fetchAction = () => (dispatch) => {
 export const fetchComedy = () => (dispatch) => {
   dispatch({ type: START_FETCHING_COMEDY });
   axios
-    .get(
-      `${URL}discover/movie?api_key=${KEY}&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=35`
-    )
+    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=35`)
     .then((res) => {
       dispatch({
         type: COMEDY_FETCH_SUCCESS,
@@ -184,9 +179,7 @@ export const fetchComedy = () => (dispatch) => {
 export const fetchDrama = () => (dispatch) => {
   dispatch({ type: START_FETCHING_DRAMA });
   axios
-    .get(
-      `${URL}discover/movie?api_key=${KEY}&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=18`
-    )
+    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=18`)
     .then((res) => {
       dispatch({
         type: DRAMA_FETCH_SUCCESS,
@@ -204,9 +197,7 @@ export const fetchDrama = () => (dispatch) => {
 export const fetchDocumentary = () => (dispatch) => {
   dispatch({ type: START_FETCHING_DOCUMENTARY });
   axios
-    .get(
-      `${URL}discover/movie?api_key=${KEY}&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=99`
-    )
+    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=99`)
     .then((res) => {
       dispatch({
         type: DOCUMENTARY_FETCH_SUCCESS,
@@ -224,9 +215,7 @@ export const fetchDocumentary = () => (dispatch) => {
 export const fetchRomance = () => (dispatch) => {
   dispatch({ type: START_FETCHING_ROMANCE });
   axios
-    .get(
-      `${URL}discover/movie?api_key=${KEY}&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=10749`
-    )
+    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=10749`)
     .then((res) => {
       dispatch({
         type: ROMANCE_FETCH_SUCCESS,
@@ -244,9 +233,7 @@ export const fetchRomance = () => (dispatch) => {
 export const fetchThriller = () => (dispatch) => {
   dispatch({ type: START_FETCHING_THRILLER });
   axios
-    .get(
-      `${URL}discover/movie?api_key=${KEY}&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=53`
-    )
+    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=53`)
     .then((res) => {
       dispatch({
         type: THRILLER_FETCH_SUCCESS,
@@ -264,9 +251,7 @@ export const fetchThriller = () => (dispatch) => {
 export const fetchFamily = () => (dispatch) => {
   dispatch({ type: START_FETCHING_FAMILY });
   axios
-    .get(
-      `${URL}discover/movie?api_key=${KEY}&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_genres=10751`
-    )
+    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=10751`)
     .then((res) => {
       dispatch({
         type: FAMILY_FETCH_SUCCESS,

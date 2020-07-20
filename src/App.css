@@ -52,15 +52,29 @@ code {
   }
 }
 
+.movie-container {
+  text-align: left;
+}
+
+.title {
+  color: white;
+  margin-left: 20px;
+}
+
 .movies {
   display: flex;
-  overflow-y: scroll;
+  overflow-y: none;
 }
 
 .movies img {
-  width: 200px;
+  width: 210px;
   border-radius: 10px;
   margin: 20px;
+}
+
+.movies img:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .poster-container {

@@ -34,50 +34,62 @@ function Data(data) {
 
   let movie_data = [
     {
+      id: 1,
       title: 'Trending',
       data: data.trending_today,
     },
     {
+      id: 2,
       title: 'Now Playing',
       data: data.now_playing,
     },
     {
+      id: 3,
       title: 'Top Rated',
       data: data.top_rated,
     },
     {
+      id: 4,
       title: 'Upcoming',
       data: data.upcoming,
     },
     {
+      id: 5,
       title: 'Horror',
       data: data.horror,
     },
     {
+      id: 6,
       title: 'Action',
       data: data.action,
     },
     {
+      id: 7,
       title: 'Comedy',
       data: data.comedy,
     },
     {
+      id: 8,
       title: 'Documentary',
       data: data.documentary,
     },
     {
+      id: 9,
       title: 'Romance',
       data: data.romance,
     },
     {
+      id: 10,
       title: 'Thriller',
       data: data.thriller,
     },
     {
+      id: 11,
       title: 'Family',
       data: data.family,
     },
     {
+      id: 12,
       title: 'Trending Today',
       data: data.trending_today,
     },

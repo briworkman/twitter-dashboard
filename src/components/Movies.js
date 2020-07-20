@@ -1,10 +1,27 @@
 import React from 'react';
 
 function Movies(props) {
-  console.log('MOVIES: ', props);
   return (
     <div>
-      <h1>Movies Here :)</h1>
+      {props.movies.map((movie) => {
+        return (
+          <div>
+            <h1>{movie.title}</h1>
+            {console.log(movie.data)}
+            <div>
+              {movie.data.length >= 1
+                ? movie.data.map((data) => {
+                    return (
+                      <div>
+                        <h3>{data.title}</h3>
+                      </div>
+                    );
+                  })
+                : console.log('...loading')}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

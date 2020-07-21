@@ -60,36 +60,53 @@ code {
 .title {
   color: white;
   margin-left: 20px;
+  letter-spacing: 5px;
 }
 
 .movies {
   display: flex;
   overflow-y: none;
+  margin-bottom: 50px;
 }
 
 .movies img {
-  width: 150px;
+  width: 175px;
   border-radius: 10px;
   margin: 10px;
   margin-left: 20px;
-}
-
-.movies img:hover {
-  opacity: 0.5;
-  cursor: pointer;
 }
 
 .poster-container {
   display: flex;
 }
 
+.poster-container:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
 .rating {
   display: flex;
-  color: white;
   background-color: #3f3f3f;
   height: 45px;
   width: 45px;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+  margin-left: -35px;
+}
+
+.spacer {
+  margin: 0 auto;
+  height: 1px;
+  width: 70%;
+  background: white;
+  background: -webkit-gradient(
+    linear,
+    0 0,
+    100% 0,
+    from(#151515),
+    to(#151515),
+    color-stop(50%, #919191)
+  );
 }

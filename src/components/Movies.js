@@ -44,6 +44,7 @@ function Movies(props) {
                   })
                 : null}
             </div>
+            <div className='spacer'></div>
           </div>
         );
       })}

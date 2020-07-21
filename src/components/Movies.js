@@ -50,7 +50,11 @@ function Movies(props) {
                           </div>
                         </div>
                         <div className='movie-data'>
-                          <h3 className='movie-title'>{data.title}</h3>
+                          <h3 className='movie-title'>
+                            {data.title.length > 33
+                              ? data.title.substring(0, 33, 3) + '...'
+                              : data.title}
+                          </h3>
                           <p>{format(data.release_date)}</p>
                         </div>
                       </div>

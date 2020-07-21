@@ -3,8 +3,8 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 function Movies(props) {
-  console.log(props);
   let IMG_URL = process.env.REACT_APP_IMG_URL;
+
   var format = function (input) {
     var pattern = /(\d{4})\-(\d{2})\-(\d{2})/;
     if (!input || !input.match(pattern)) {

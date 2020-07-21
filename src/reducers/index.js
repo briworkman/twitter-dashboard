@@ -5,9 +5,6 @@ import {
   START_FETCHING_TOP_RATED,
   TOP_RATED_FETCH_SUCCESS,
   TOP_RATED_FETCH_FAILURE,
-  START_FETCHING_UPCOMING,
-  UPCOMING_FETCH_SUCCESS,
-  UPCOMING_FETCH_FAILURE,
   START_FETCHING_HORROR,
   HORROR_FETCH_SUCCESS,
   HORROR_FETCH_FAILURE,
@@ -41,7 +38,6 @@ const initialState = {
   popular: [],
   now_playing: [],
   top_rated: [],
-  upcoming: [],
   horror: [],
   action: [],
   comedy: [],
@@ -90,25 +86,6 @@ const reducer = (state = initialState, action) => {
         top_rated: action.payload,
       };
     case TOP_RATED_FETCH_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-        isFetching: false,
-      };
-    case START_FETCHING_UPCOMING:
-      return {
-        ...state,
-        isFetching: true,
-        error: '',
-      };
-    case UPCOMING_FETCH_SUCCESS:
-      return {
-        ...state,
-        isFetching: false,
-        error: '',
-        upcoming: action.payload,
-      };
-    case UPCOMING_FETCH_FAILURE:
       return {
         ...state,
         error: action.payload,

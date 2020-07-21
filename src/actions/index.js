@@ -8,10 +8,6 @@ export const START_FETCHING_TOP_RATED = 'START_FETCHING_TOP_RATED';
 export const TOP_RATED_FETCH_SUCCESS = 'TOP_RATED_FETCH_SUCCESS';
 export const TOP_RATED_FETCH_FAILURE = 'TOP_RATED_FETCH_FAILURE';
 
-export const START_FETCHING_UPCOMING = 'START_FETCHING_UPCOMING';
-export const UPCOMING_FETCH_SUCCESS = 'UPCOMING_FETCH_SUCCESS';
-export const UPCOMING_FETCH_FAILURE = 'UPCOMING_FETCH_FAILURE';
-
 export const START_FETCHING_HORROR = 'START_FETCHING_HORROR';
 export const HORROR_FETCH_SUCCESS = 'HORROR_FETCH_SUCCESS';
 export const HORROR_FETCH_FAILURE = 'HORROR_FETCH_FAILURE';
@@ -83,24 +79,6 @@ export const fetchTopRated = () => (dispatch) => {
     .catch((err) =>
       dispatch({
         type: TOP_RATED_FETCH_FAILURE,
-        payload: err.response,
-      })
-    );
-};
-
-export const fetchUpcoming = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_UPCOMING });
-  axios
-    .get(`${URL}movie/top_rated?api_key=${KEY}`)
-    .then((res) => {
-      dispatch({
-        type: UPCOMING_FETCH_SUCCESS,
-        payload: res.data.results,
-      });
-    })
-    .catch((err) =>
-      dispatch({
-        type: UPCOMING_FETCH_FAILURE,
         payload: err.response,
       })
     );

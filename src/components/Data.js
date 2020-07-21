@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import {
   fetchNowPlaying,
   fetchTopRated,
-  fetchUpcoming,
   fetchHorror,
   fetchAction,
   fetchComedy,
@@ -21,7 +20,6 @@ function Data(data) {
   useEffect(() => {
     data.fetchNowPlaying();
     data.fetchTopRated();
-    data.fetchUpcoming();
     data.fetchHorror();
     data.fetchAction();
     data.fetchComedy();
@@ -47,11 +45,6 @@ function Data(data) {
       id: 3,
       title: 'Top Rated',
       data: data.top_rated,
-    },
-    {
-      id: 4,
-      title: 'Upcoming',
-      data: data.upcoming,
     },
     {
       id: 5,
@@ -106,7 +99,6 @@ const mapStateToProps = (state) => {
   return {
     now_playing: state.now_playing,
     top_rated: state.top_rated,
-    upcoming: state.upcoming,
     horror: state.horror,
     action: state.action,
     comedy: state.comedy,
@@ -123,7 +115,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   fetchNowPlaying,
   fetchTopRated,
-  fetchUpcoming,
   fetchHorror,
   fetchAction,
   fetchComedy,

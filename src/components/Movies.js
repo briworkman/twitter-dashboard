@@ -3,8 +3,16 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 function Movies(props) {
-  // console.log(props);
+  console.log(props);
   let IMG_URL = process.env.REACT_APP_IMG_URL;
+  var format = function (input) {
+    var pattern = /(\d{4})\-(\d{2})\-(\d{2})/;
+    if (!input || !input.match(pattern)) {
+      return null;
+    }
+    return input.replace(pattern, '$2/$3/$1');
+  };
+
   return (
     <div>
       {props.movies.map((movie) => {
@@ -19,25 +27,31 @@ function Movies(props) {
                       (data.vote_average / 10) * 100
                     );
                     return (
-                      <div className='poster-container' key={data.id}>
-                        <img src={poster} alt='movie poster' />
-                        <div className='rating'>
-                          <CircularProgressbar
-                            value={vote_average}
-                            text={`${vote_average}%`}
-                            styles={buildStyles({
-                              rotation: 0.25,
-                              strokeLinecap: 'round',
-                              textSize: '28px',
-                              pathColor:
-                                `${vote_average}` >= 75
-                                  ? '#21D07A'
-                                  : `${vote_average}` >= 50
-                                  ? '#C8CB2E'
-                                  : '#E50914',
-                              textColor: '#ffffff',
-                            })}
-                          />
+                      <div key={data.id}>
+                        <div className='poster-container'>
+                          <img src={poster} alt='movie poster' />
+                          <div className='rating'>
+                            <CircularProgressbar
+                              value={vote_average}
+                              text={`${vote_average}%`}
+                              styles={buildStyles({
+                                rotation: 0.25,
+                                strokeLinecap: 'round',
+                                textSize: '28px',
+                                pathColor:
+                                  `${vote_average}` >= 75
+                                    ? '#21D07A'
+                                    : `${vote_average}` >= 50
+                                    ? '#C8CB2E'
+                                    : '#E50914',
+                                textColor: '#ffffff',
+                              })}
+                            />
+                          </div>
+                        </div>
+                        <div className='movie-data'>
+                          <h3 className='movie-title'>{data.title}</h3>
+                          <p>{format(data.release_date)}</p>
                         </div>
                       </div>
                     );

@@ -28,6 +28,8 @@ function Data(data) {
     data.fetchThriller();
     data.fetchFamily();
     data.fetchTrending();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let movie_data = [

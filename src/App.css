@@ -35,7 +35,7 @@ code {
 }
 
 .movies img {
-  width: 175px;
+  width: 150px;
   border-radius: 10px;
   margin: 10px;
   margin-left: 20px;
@@ -74,4 +74,13 @@ code {
     to(#151515),
     color-stop(50%, white)
   );
+}
+
+.movie-data {
+  color: white;
+  margin-left: 20px;
+}
+
+.movie-title {
+  margin-bottom: -10px;
 }

@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a66f13c8-f201-47a1-ae70-f50ce3c2a2ff/deploy-status)](https://app.netlify.com/sites/eloquent-shirley-b8528e/deploys)
+
 # Movie Box 2.0
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

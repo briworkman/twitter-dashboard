@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import Hero from './Hero';
 import Movies from './Movies';
 
 import { connect } from 'react-redux';
@@ -17,6 +18,9 @@ import {
 } from '../actions';
 
 function Data(data) {
+  let IMG_URL = process.env.REACT_APP_IMG_URL;
+  let BACKDROP_SIZE = process.env.REACT_APP_BACKDROP_SIZE;
+
   useEffect(() => {
     data.fetchNowPlaying();
     data.fetchTopRated();
@@ -31,6 +35,8 @@ function Data(data) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  let hero_image = data.trending_today[0];
 
   let movie_data = [
     {
@@ -92,6 +98,13 @@ function Data(data) {
 
   return (
     <div>
+      {hero_image ? (
+        <Hero
+          image={`${IMG_URL}${BACKDROP_SIZE}${hero_image.backdrop_path}`}
+          title={hero_image.original_title}
+          text={hero_image.overview}
+        />
+      ) : null}
       <Movies movies={movie_data} />
     </div>
   );

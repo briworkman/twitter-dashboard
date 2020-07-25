@@ -44,6 +44,10 @@ export const START_FETCHING_TRENDING = 'START_FETCHING_TRENDING';
 export const TRENDING_FETCH_SUCCESS = 'TRENDING_FETCH_SUCCESS';
 export const TRENDING_FETCH_FAILURE = 'TRENDING_FETCH_FAILURE';
 
+export const START_FETCHING_INFO = 'START_FETCHING_INFO';
+export const INFO_FETCH_SUCCESS = 'INFO_FETCH_SUCCESS';
+export const INFO_FETCH_FAILURE = 'INFO_FETCH_FAILURE';
+
 let URL = process.env.REACT_APP_API_URL;
 let KEY = process.env.REACT_APP_API_KEY;
 let GENRE = process.env.REACT_APP_GENRE_URL;
@@ -241,6 +245,24 @@ export const fetchTrending = () => (dispatch) => {
     .catch((err) =>
       dispatch({
         type: TRENDING_FETCH_FAILURE,
+        payload: err.response,
+      })
+    );
+};
+
+export const fetchMovieInfo = (id) => (dispatch) => {
+  dispatch({ type: START_FETCHING_INFO });
+  axios
+    .get(`${URL}movie/${id}?api_key=${KEY}`)
+    .then((res) => {
+      dispatch({
+        type: INFO_FETCH_SUCCESS,
+        payload: res.data,
+      });
+    })
+    .catch((err) =>
+      dispatch({
+        type: INFO_FETCH_FAILURE,
         payload: err.response,
       })
     );

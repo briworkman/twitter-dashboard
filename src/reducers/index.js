@@ -32,6 +32,9 @@ import {
   START_FETCHING_TRENDING,
   TRENDING_FETCH_SUCCESS,
   TRENDING_FETCH_FAILURE,
+  START_FETCHING_INFO,
+  INFO_FETCH_SUCCESS,
+  INFO_FETCH_FAILURE,
 } from '../actions';
 
 const initialState = {
@@ -47,6 +50,7 @@ const initialState = {
   thriller: [],
   family: [],
   trending_today: [],
+  info: {},
   isFetching: false,
   error: '',
 };
@@ -257,6 +261,25 @@ const reducer = (state = initialState, action) => {
         trending_today: action.payload,
       };
     case TRENDING_FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false,
+      };
+    case START_FETCHING_INFO:
+      return {
+        ...state,
+        isFetching: true,
+        error: '',
+      };
+    case INFO_FETCH_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+        info: action.payload,
+      };
+    case INFO_FETCH_FAILURE:
       return {
         ...state,
         error: action.payload,

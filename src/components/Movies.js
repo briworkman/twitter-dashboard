@@ -2,6 +2,9 @@ import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
+import { NavLink, Route } from 'react-router-dom';
+import MovieInfo from './MovieInfo';
+
 function Movies(props) {
   let data = props.movie_data.data;
   let IMG_URL = process.env.REACT_APP_IMG_URL;
@@ -22,7 +25,18 @@ function Movies(props) {
             return (
               <div key={data.id}>
                 <div className='poster-container'>
-                  <img src={poster} alt='movie poster' />
+                  <NavLink
+                    to={{ pathname: `/movie/${data.id}`, props: { data } }}
+                  >
+                    <img src={poster} alt='movie poster' />
+                  </NavLink>
+                  <Route
+                    exact
+                    path='/movie/:id'
+                    render={(props) => (
+                      <MovieInfo {...props} movie={data} key={data.id} />
+                    )}
+                  />
                   <div className='rating'>
                     <CircularProgressbar
                       value={vote_average}

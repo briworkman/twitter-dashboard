@@ -83,3 +83,12 @@ code {
 .movie-title {
   margin-bottom: -10px;
 }
+
+.movie-backdrop {
+  background-size: cover !important;
+  background-position: center !important;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  animation: animateMovieinfo 1s;
+}

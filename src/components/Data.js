@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import Hero from './Hero';
-import Movies from './Movies';
+import Home from './Home';
 
 import { connect } from 'react-redux';
 import {
@@ -105,7 +105,7 @@ function Data(data) {
           text={hero_image.overview}
         />
       ) : null}
-      <Movies movies={movie_data} />
+      <Home movies={movie_data} />
     </div>
   );
 }

@@ -41,7 +41,7 @@ function Data(data) {
   let movie_data = [
     {
       id: 1,
-      title: 'Trending',
+      title: 'Trending Today',
       data: data.trending_today,
     },
     {
@@ -88,11 +88,6 @@ function Data(data) {
       id: 11,
       title: 'Family',
       data: data.family,
-    },
-    {
-      id: 12,
-      title: 'Trending Today',
-      data: data.trending_today,
     },
   ];
 

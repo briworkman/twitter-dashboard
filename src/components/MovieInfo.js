@@ -5,7 +5,7 @@ import { fetchMovieInfo } from '../actions';
 
 import styled from 'styled-components';
 
-export const StyledMovieInfo = styled.div`
+const StyledMovieInfo = styled.div`
   background: ${(props) =>
     props.backdrop
       ? `url('${props.IMG_URL}${props.BACKDROP_SIZE}${props.backdrop}')`
@@ -93,44 +93,86 @@ export const StyledMovieInfo = styled.div`
   }
 `;
 
+const StyledMovieThumb = styled.div`
+  img {
+    width: 100%;
+    height: auto;
+    /* max-height: 350px; */
+    transition: all 0.3s;
+    object-fit: cover;
+    border-radius: 10px;
+    :hover {
+      opacity: 0.5;
+      cursor: pointer;
+    }
+    /* @media screen and (max-width: 1024px) {
+      height: 300px;
+    }
+    @media screen and (max-width: 768px) {
+      height: 350px;
+    }
+    @media screen and (max-width: 600px) {
+      max-height: 300px;
+    }
+    @media screen and (max-width: 375px) {
+      max-height: 450px;
+    } */
+    .clickable {
+      cursor: pointer;
+    }
+  }
+`;
+
 function MovieInfo(props) {
   let id = props.match.params.id;
   let IMG_URL = process.env.REACT_APP_IMG_URL;
   let BACKDROP_SIZE = process.env.REACT_APP_BACKDROP_SIZE;
+  let POSTER_SIZE = process.env.REACT_APP_POSTER_SIZE;
 
   useEffect(() => {
     props.fetchMovieInfo(id);
   }, [id]);
 
   console.log('PROPS: ', props);
+  let movieInfo = props.info;
 
   return (
     <StyledMovieInfo
       IMG_URL={IMG_URL}
       BACKDROP_SIZE={BACKDROP_SIZE}
-      backdrop={props.info.backdrop_path}
+      backdrop={movieInfo.backdrop_path}
     >
       <div className='movieinfo-content'>
+        <a href={movieInfo.homepage} target='_blank' rel='noopener noreferrer'>
+          <div className='movieinfo-thumb'>
+            <StyledMovieThumb>
+              <img
+                src={`${IMG_URL}${POSTER_SIZE}${movieInfo.poster_path}`}
+                alt='movie poster'
+              />
+            </StyledMovieThumb>
+          </div>
+        </a>
         <div className='movieinfo-text'>
-          <h1>{props.info.title}</h1>
+          <h1>{movieInfo.title}</h1>
           <h3>PLOT</h3>
-          <p>{props.info.overview}</p>
+          <p>{movieInfo.overview}</p>
           <div className='rating-genre'>
             <div>
               <h3>IMDB RATING</h3>
-              <div className='score'>{props.info.vote_average}</div>
+              <div className='score'>{movieInfo.vote_average}</div>
             </div>
             <div className='genre'>
               <h3>
                 GENRE
-                {props.info.genres
-                  ? props.info.genres.length > 1
-                    ? 's'
+                {movieInfo.genres
+                  ? movieInfo.genres.length > 1
+                    ? 'S'
                     : ''
                   : null}
               </h3>
-              {props.info.genres
-                ? props.info.genres.map((genre) => (
+              {movieInfo.genres
+                ? movieInfo.genres.map((genre) => (
                     <p key={genre.id}>{genre.name}</p>
                   ))
                 : null}

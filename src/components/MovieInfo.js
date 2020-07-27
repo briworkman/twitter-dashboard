@@ -138,55 +138,61 @@ function MovieInfo(props) {
   let movieInfo = props.info;
 
   return (
-    <StyledMovieInfo
-      IMG_URL={IMG_URL}
-      BACKDROP_SIZE={BACKDROP_SIZE}
-      backdrop={movieInfo.backdrop_path}
-    >
-      <div className='movieinfo-content'>
-        <a href={movieInfo.homepage} target='_blank' rel='noopener noreferrer'>
-          <div className='movieinfo-thumb'>
-            <StyledMovieThumb>
-              <img
-                src={`${IMG_URL}${POSTER_SIZE}${movieInfo.poster_path}`}
-                alt='movie poster'
-              />
-            </StyledMovieThumb>
-          </div>
-        </a>
-        <div className='movieinfo-text'>
-          <h1>{movieInfo.title}</h1>
-          <h3>PLOT</h3>
-          <p>{movieInfo.overview}</p>
-          <div className='rating-genre'>
-            <div>
-              <h3>IMDB RATING</h3>
-              <div className='score'>{movieInfo.vote_average}</div>
+    <div>
+      <StyledMovieInfo
+        IMG_URL={IMG_URL}
+        BACKDROP_SIZE={BACKDROP_SIZE}
+        backdrop={movieInfo.backdrop_path}
+      >
+        <div className='movieinfo-content'>
+          <a
+            href={movieInfo.homepage}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <div className='movieinfo-thumb'>
+              <StyledMovieThumb>
+                <img
+                  src={`${IMG_URL}${POSTER_SIZE}${movieInfo.poster_path}`}
+                  alt='movie poster'
+                />
+              </StyledMovieThumb>
             </div>
-            <div className='genre'>
-              <h3>
-                GENRE
+          </a>
+          <div className='movieinfo-text'>
+            <h1>{movieInfo.title}</h1>
+            <h3>PLOT</h3>
+            <p>{movieInfo.overview}</p>
+            <div className='rating-genre'>
+              <div>
+                <h3>IMDB RATING</h3>
+                <div className='score'>{movieInfo.vote_average}</div>
+              </div>
+              <div className='genre'>
+                <h3>
+                  GENRE
+                  {movieInfo.genres
+                    ? movieInfo.genres.length > 1
+                      ? 'S'
+                      : ''
+                    : null}
+                </h3>
                 {movieInfo.genres
-                  ? movieInfo.genres.length > 1
-                    ? 'S'
-                    : ''
+                  ? movieInfo.genres.map((genre) => (
+                      <p key={genre.id}>{genre.name}</p>
+                    ))
                   : null}
-              </h3>
-              {movieInfo.genres
-                ? movieInfo.genres.map((genre) => (
-                    <p key={genre.id}>{genre.name}</p>
-                  ))
-                : null}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </StyledMovieInfo>
       <MovieInfoBar
         time={movieInfo.runtime}
         budget={movieInfo.budget}
         revenue={movieInfo.revenue}
       />
-    </StyledMovieInfo>
+    </div>
   );
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchSimilar } from '../actions';
+import { IMG_URL, POSTER_SIZE } from '../utils/config';
 
 function SimilarMovies(props) {
   useEffect(() => {
@@ -8,11 +9,25 @@ function SimilarMovies(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(props.similar);
+  console.log('SIMILAR: ', props.similar);
 
   return (
     <div>
-      <p>{props.id}</p>
+      <h2>Similar Movies</h2>
+      <div className='movies'>
+        {props.similar.length > 0
+          ? props.similar.map((similar) => {
+              let poster = `${IMG_URL}${POSTER_SIZE}${similar.poster_path}`;
+              return (
+                <div key={similar.id}>
+                  <div className='poster-container'>
+                    <img src={poster} alt='movie poster' />
+                  </div>
+                </div>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 }

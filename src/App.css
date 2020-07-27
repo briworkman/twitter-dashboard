@@ -92,3 +92,38 @@ code {
   box-sizing: border-box;
   animation: animateMovieinfo 1s;
 }
+
+.movieinfobar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+  background: #1c1c1c;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Abel', sans-serif;
+  font-size: 20px;
+}
+
+.movieinfobar-content {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  max-width: 1280px;
+  width: 100%;
+  color: #fff;
+}
+
+.movieinfobar-content-col {
+  display: flex;
+  align-items: center;
+}
+
+.fa-time,
+.fa-revenue,
+.fa-budget {
+  float: left;
+  margin-right: 10px;
+  height: 30px;
+}

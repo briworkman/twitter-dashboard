@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { URL, KEY, GENRE } from '../utils/config';
 
 export const START_FETCHING_NOW_PLAYING = 'START_FETCHING_NOW_PLAYING';
 export const NOW_PLAYING_FETCH_SUCCESS = 'NOW_PLAYING_FETCH_SUCCESS';
@@ -47,10 +48,6 @@ export const TRENDING_FETCH_FAILURE = 'TRENDING_FETCH_FAILURE';
 export const START_FETCHING_INFO = 'START_FETCHING_INFO';
 export const INFO_FETCH_SUCCESS = 'INFO_FETCH_SUCCESS';
 export const INFO_FETCH_FAILURE = 'INFO_FETCH_FAILURE';
-
-let URL = process.env.REACT_APP_API_URL;
-let KEY = process.env.REACT_APP_API_KEY;
-let GENRE = process.env.REACT_APP_GENRE_URL;
 
 export const fetchNowPlaying = () => (dispatch) => {
   dispatch({ type: START_FETCHING_NOW_PLAYING });

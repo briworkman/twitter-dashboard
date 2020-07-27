@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 
+import { IMG_URL, BACKDROP_SIZE } from '../utils/config';
+
 import Hero from './Hero';
 import Home from './Home';
 
@@ -18,9 +20,6 @@ import {
 } from '../actions';
 
 function Data(data) {
-  let IMG_URL = process.env.REACT_APP_IMG_URL;
-  let BACKDROP_SIZE = process.env.REACT_APP_BACKDROP_SIZE;
-
   useEffect(() => {
     data.fetchNowPlaying();
     data.fetchTopRated();

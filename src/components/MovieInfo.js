@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import { fetchMovieInfo } from '../actions';
+import { IMG_URL, BACKDROP_SIZE, POSTER_SIZE } from '../utils/config';
 import MovieInfoBar from './MovieInfoBar';
 
 import styled from 'styled-components';
@@ -64,15 +65,11 @@ const StyledMovieThumb = styled.div`
 
 function MovieInfo(props) {
   let id = props.match.params.id;
-  let IMG_URL = process.env.REACT_APP_IMG_URL;
-  let BACKDROP_SIZE = process.env.REACT_APP_BACKDROP_SIZE;
-  let POSTER_SIZE = process.env.REACT_APP_POSTER_SIZE;
 
   useEffect(() => {
     props.fetchMovieInfo(id);
   }, [id]);
 
-  console.log('PROPS: ', props);
   let movieInfo = props.info;
 
   return (

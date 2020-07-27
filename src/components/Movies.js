@@ -2,13 +2,13 @@ import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { format } from '../utils/helpers';
+import { IMG_URL } from '../utils/config';
 
 import { NavLink, Route } from 'react-router-dom';
 import MovieInfo from './MovieInfo';
 
 function Movies(props) {
   let data = props.movie_data.data;
-  let IMG_URL = process.env.REACT_APP_IMG_URL;
 
   return (
     <div className='movies'>

@@ -13,21 +13,23 @@ function SimilarMovies(props) {
 
   return (
     <div>
-      <h2>Similar Movies</h2>
-      <div className='movies'>
-        {props.similar.length > 0
-          ? props.similar.map((similar) => {
+      {props.similar.length > 0 ? (
+        <div>
+          <h2 className='similar-title'>SIMILAR MOVIES</h2>
+          <div className='movies'>
+            {props.similar.map((similar) => {
               let poster = `${IMG_URL}${POSTER_SIZE}${similar.poster_path}`;
               return (
                 <div key={similar.id}>
-                  <div className='poster-container'>
+                  <div className='similarposter-container'>
                     <img src={poster} alt='movie poster' />
                   </div>
                 </div>
               );
-            })
-          : null}
-      </div>
+            })}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

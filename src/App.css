@@ -27,6 +27,13 @@ code {
   letter-spacing: 5px;
 }
 
+.similar-title {
+  color: white;
+  margin-left: 20px;
+  letter-spacing: 5px;
+  text-align: left;
+}
+
 .movies {
   display: flex;
   overflow-y: none;
@@ -40,7 +47,8 @@ code {
   margin-left: 20px;
 }
 
-.poster-container {
+.poster-container,
+.similarposter-container {
   display: flex;
 }
 

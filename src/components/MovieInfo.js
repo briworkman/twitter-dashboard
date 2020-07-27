@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import { fetchMovieInfo } from '../actions';
+import MovieInfoBar from './MovieInfoBar';
 
 import styled from 'styled-components';
 
@@ -180,6 +181,11 @@ function MovieInfo(props) {
           </div>
         </div>
       </div>
+      <MovieInfoBar
+        time={movieInfo.runtime}
+        budget={movieInfo.budget}
+        revenue={movieInfo.revenue}
+      />
     </StyledMovieInfo>
   );
 }

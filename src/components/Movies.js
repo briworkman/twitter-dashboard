@@ -1,6 +1,7 @@
 import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { format } from '../utils/helpers';
 
 import { NavLink, Route } from 'react-router-dom';
 import MovieInfo from './MovieInfo';
@@ -8,13 +9,6 @@ import MovieInfo from './MovieInfo';
 function Movies(props) {
   let data = props.movie_data.data;
   let IMG_URL = process.env.REACT_APP_IMG_URL;
-  var format = function (input) {
-    var pattern = /(\d{4})\-(\d{2})\-(\d{2})/;
-    if (!input || !input.match(pattern)) {
-      return null;
-    }
-    return input.replace(pattern, '$2/$3/$1');
-  };
 
   return (
     <div className='movies'>

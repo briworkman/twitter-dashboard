@@ -35,6 +35,9 @@ import {
   START_FETCHING_INFO,
   INFO_FETCH_SUCCESS,
   INFO_FETCH_FAILURE,
+  START_FETCHING_SIMILAR,
+  SIMILAR_FETCH_SUCCESS,
+  SIMILAR_FETCH_FAILURE,
 } from '../actions';
 
 const initialState = {
@@ -51,6 +54,7 @@ const initialState = {
   family: [],
   trending_today: [],
   info: {},
+  similar: [],
   isFetching: false,
   error: '',
 };
@@ -280,6 +284,25 @@ const reducer = (state = initialState, action) => {
         info: action.payload,
       };
     case INFO_FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false,
+      };
+    case START_FETCHING_SIMILAR:
+      return {
+        ...state,
+        isFetching: true,
+        error: '',
+      };
+    case SIMILAR_FETCH_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+        similar: action.payload,
+      };
+    case SIMILAR_FETCH_FAILURE:
       return {
         ...state,
         error: action.payload,

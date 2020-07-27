@@ -49,6 +49,10 @@ export const START_FETCHING_INFO = 'START_FETCHING_INFO';
 export const INFO_FETCH_SUCCESS = 'INFO_FETCH_SUCCESS';
 export const INFO_FETCH_FAILURE = 'INFO_FETCH_FAILURE';
 
+export const START_FETCHING_SIMILAR = 'START_FETCHING_SIMILAR';
+export const SIMILAR_FETCH_SUCCESS = 'SIMILAR_FETCH_SUCCESS';
+export const SIMILAR_FETCH_FAILURE = 'SIMILAR_FETCH_FAILURE';
+
 export const fetchNowPlaying = () => (dispatch) => {
   dispatch({ type: START_FETCHING_NOW_PLAYING });
   axios
@@ -260,6 +264,24 @@ export const fetchMovieInfo = (id) => (dispatch) => {
     .catch((err) =>
       dispatch({
         type: INFO_FETCH_FAILURE,
+        payload: err.response,
+      })
+    );
+};
+
+export const fetchSimilar = (id) => (dispatch) => {
+  dispatch({ type: START_FETCHING_SIMILAR });
+  axios
+    .get(`${URL}movie/${id}/similar?api_key=${KEY}`)
+    .then((res) => {
+      dispatch({
+        type: SIMILAR_FETCH_SUCCESS,
+        payload: res.data.results,
+      });
+    })
+    .catch((err) =>
+      dispatch({
+        type: SIMILAR_FETCH_FAILURE,
         payload: err.response,
       })
     );

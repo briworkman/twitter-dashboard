@@ -19,7 +19,7 @@ import {
   fetchTrending,
 } from '../actions';
 
-function Data(data) {
+function MovieData(data) {
   useEffect(() => {
     data.fetchNowPlaying();
     data.fetchTopRated();
@@ -132,4 +132,4 @@ export default connect(mapStateToProps, {
   fetchThriller,
   fetchFamily,
   fetchTrending,
-})(Data);
+})(MovieData);

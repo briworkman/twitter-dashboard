@@ -3,7 +3,9 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchMovieInfo } from '../actions';
 import { IMG_URL, BACKDROP_SIZE, POSTER_SIZE } from '../utils/config';
+
 import MovieInfoBar from './MovieInfoBar';
+import SimilarMovies from './SimilarMovies';
 
 import styled from 'styled-components';
 
@@ -127,6 +129,7 @@ function MovieInfo(props) {
         budget={movieInfo.budget}
         revenue={movieInfo.revenue}
       />
+      <SimilarMovies id={id} />
     </div>
   );
 }

@@ -4,37 +4,9 @@ export const START_FETCHING_MOVIES = 'START_FETCHING_MOVIES';
 export const MOVIES_FETCH_SUCCESS = 'MOVIES_FETCH_SUCCESS';
 export const MOVIES_FETCH_FAILURE = 'MOVIES_FETCH_FAILURE';
 
-export const START_FETCHING_HORROR = 'START_FETCHING_HORROR';
-export const HORROR_FETCH_SUCCESS = 'HORROR_FETCH_SUCCESS';
-export const HORROR_FETCH_FAILURE = 'HORROR_FETCH_FAILURE';
-
-export const START_FETCHING_ACTION = 'START_FETCHING_ACTION';
-export const ACTION_FETCH_SUCCESS = 'ACTION_FETCH_SUCCESS';
-export const ACTION_FETCH_FAILURE = 'ACTION_FETCH_FAILURE';
-
-export const START_FETCHING_COMEDY = 'START_FETCHING_COMEDY';
-export const COMEDY_FETCH_SUCCESS = 'COMEDY_FETCH_SUCCESS';
-export const COMEDY_FETCH_FAILURE = 'COMEDY_FETCH_FAILURE';
-
-export const START_FETCHING_DRAMA = 'START_FETCHING_DRAMA';
-export const DRAMA_FETCH_SUCCESS = 'DRAMA_FETCH_SUCCESS';
-export const DRAMA_FETCH_FAILURE = 'DRAMA_FETCH_FAILURE';
-
-export const START_FETCHING_DOCUMENTARY = 'START_FETCHING_DOCUMENTARY';
-export const DOCUMENTARY_FETCH_SUCCESS = 'DOCUMENTARY_FETCH_SUCCESS';
-export const DOCUMENTARY_FETCH_FAILURE = 'DOCUMENTARY_FETCH_FAILURE';
-
-export const START_FETCHING_ROMANCE = 'START_FETCHING_ROMANCE';
-export const ROMANCE_FETCH_SUCCESS = 'ROMANCE_FETCH_SUCCESS';
-export const ROMANCE_FETCH_FAILURE = 'ROMANCE_FETCH_FAILURE';
-
-export const START_FETCHING_THRILLER = 'START_FETCHING_THRILLER';
-export const THRILLER_FETCH_SUCCESS = 'THRILLER_FETCH_SUCCESS';
-export const THRILLER_FETCH_FAILURE = 'THRILLER_FETCH_FAILURE';
-
-export const START_FETCHING_FAMILY = 'START_FETCHING_FAMILY';
-export const FAMILY_FETCH_SUCCESS = 'FAMILY_FETCH_SUCCESS';
-export const FAMILY_FETCH_FAILURE = 'FAMILY_FETCH_FAILURE';
+export const START_FETCHING_GENRES = 'START_FETCHING_GENRES';
+export const GENRES_FETCH_SUCCESS = 'GENRES_FETCH_SUCCESS';
+export const GENRES_FETCH_FAILURE = 'GENRES_FETCH_FAILURE';
 
 export const START_FETCHING_TRENDING = 'START_FETCHING_TRENDING';
 export const TRENDING_FETCH_SUCCESS = 'TRENDING_FETCH_SUCCESS';
@@ -71,145 +43,20 @@ export const fetchMovies = (type) => (dispatch) => {
     );
 };
 
-export const fetchHorror = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_HORROR });
+export const fetchGenres = (genre) => (dispatch) => {
+  dispatch({ type: START_FETCHING_GENRES });
   axios
-    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=27`)
+    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=${genre.id}`)
     .then((res) => {
       dispatch({
-        type: HORROR_FETCH_SUCCESS,
+        type: GENRES_FETCH_SUCCESS,
         payload: res.data.results,
+        genre_type: `${genre.name}`,
       });
     })
     .catch((err) =>
       dispatch({
-        type: HORROR_FETCH_FAILURE,
-        payload: err.response,
-      })
-    );
-};
-
-export const fetchAction = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_ACTION });
-  axios
-    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=28`)
-    .then((res) => {
-      dispatch({
-        type: ACTION_FETCH_SUCCESS,
-        payload: res.data.results,
-      });
-    })
-    .catch((err) =>
-      dispatch({
-        type: ACTION_FETCH_FAILURE,
-        payload: err.response,
-      })
-    );
-};
-
-export const fetchComedy = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_COMEDY });
-  axios
-    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=35`)
-    .then((res) => {
-      dispatch({
-        type: COMEDY_FETCH_SUCCESS,
-        payload: res.data.results,
-      });
-    })
-    .catch((err) =>
-      dispatch({
-        type: COMEDY_FETCH_FAILURE,
-        payload: err.response,
-      })
-    );
-};
-
-export const fetchDrama = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_DRAMA });
-  axios
-    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=18`)
-    .then((res) => {
-      dispatch({
-        type: DRAMA_FETCH_SUCCESS,
-        payload: res.data.results,
-      });
-    })
-    .catch((err) =>
-      dispatch({
-        type: DRAMA_FETCH_FAILURE,
-        payload: err.response,
-      })
-    );
-};
-
-export const fetchDocumentary = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_DOCUMENTARY });
-  axios
-    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=99`)
-    .then((res) => {
-      dispatch({
-        type: DOCUMENTARY_FETCH_SUCCESS,
-        payload: res.data.results,
-      });
-    })
-    .catch((err) =>
-      dispatch({
-        type: DOCUMENTARY_FETCH_FAILURE,
-        payload: err.response,
-      })
-    );
-};
-
-export const fetchRomance = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_ROMANCE });
-  axios
-    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=10749`)
-    .then((res) => {
-      dispatch({
-        type: ROMANCE_FETCH_SUCCESS,
-        payload: res.data.results,
-      });
-    })
-    .catch((err) =>
-      dispatch({
-        type: ROMANCE_FETCH_FAILURE,
-        payload: err.response,
-      })
-    );
-};
-
-export const fetchThriller = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_THRILLER });
-  axios
-    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=53`)
-    .then((res) => {
-      dispatch({
-        type: THRILLER_FETCH_SUCCESS,
-        payload: res.data.results,
-      });
-    })
-    .catch((err) =>
-      dispatch({
-        type: THRILLER_FETCH_FAILURE,
-        payload: err.response,
-      })
-    );
-};
-
-export const fetchFamily = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_FAMILY });
-  axios
-    .get(`${URL}discover/movie?api_key=${KEY}&${GENRE}=10751`)
-    .then((res) => {
-      dispatch({
-        type: FAMILY_FETCH_SUCCESS,
-        payload: res.data.results,
-      });
-    })
-    .catch((err) =>
-      dispatch({
-        type: FAMILY_FETCH_FAILURE,
+        type: GENRES_FETCH_FAILURE,
         payload: err.response,
       })
     );

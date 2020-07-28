@@ -6,31 +6,19 @@ import Hero from './Hero';
 import Home from './Home';
 
 import { connect } from 'react-redux';
-import {
-  fetchMovies,
-  fetchHorror,
-  fetchAction,
-  fetchComedy,
-  fetchDocumentary,
-  fetchRomance,
-  fetchThriller,
-  fetchFamily,
-  fetchTrending,
-} from '../actions';
+import { fetchMovies, fetchGenres, fetchTrending } from '../actions';
 
 function MovieData(data) {
   useEffect(() => {
     data.fetchMovies('now_playing');
     data.fetchMovies('top_rated');
-    // data.fetchNowPlaying();
-    // data.fetchTopRated();
-    data.fetchHorror();
-    data.fetchAction();
-    data.fetchComedy();
-    data.fetchDocumentary();
-    data.fetchRomance();
-    data.fetchThriller();
-    data.fetchFamily();
+    data.fetchGenres({ id: 27, name: 'horror' });
+    data.fetchGenres({ id: 28, name: 'action' });
+    data.fetchGenres({ id: 35, name: 'comedy' });
+    data.fetchGenres({ id: 99, name: 'documentary' });
+    data.fetchGenres({ id: 10749, name: 'romance' });
+    data.fetchGenres({ id: 53, name: 'thriller' });
+    data.fetchGenres({ id: 10751, name: 'family' });
     data.fetchTrending();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -124,12 +112,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   fetchMovies,
-  fetchHorror,
-  fetchAction,
-  fetchComedy,
-  fetchDocumentary,
-  fetchRomance,
-  fetchThriller,
-  fetchFamily,
+  fetchGenres,
   fetchTrending,
 })(MovieData);

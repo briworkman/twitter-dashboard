@@ -1,13 +1,8 @@
 import axios from 'axios';
 import { URL, KEY, GENRE } from '../utils/config';
-
-export const START_FETCHING_NOW_PLAYING = 'START_FETCHING_NOW_PLAYING';
-export const NOW_PLAYING_FETCH_SUCCESS = 'NOW_PLAYING_FETCH_SUCCESS';
-export const NOW_PLAYING_FETCH_FAILURE = 'NOW_PLAYING_FETCH_FAILURE';
-
-export const START_FETCHING_TOP_RATED = 'START_FETCHING_TOP_RATED';
-export const TOP_RATED_FETCH_SUCCESS = 'TOP_RATED_FETCH_SUCCESS';
-export const TOP_RATED_FETCH_FAILURE = 'TOP_RATED_FETCH_FAILURE';
+export const START_FETCHING_MOVIES = 'START_FETCHING_MOVIES';
+export const MOVIES_FETCH_SUCCESS = 'MOVIES_FETCH_SUCCESS';
+export const MOVIES_FETCH_FAILURE = 'MOVIES_FETCH_FAILURE';
 
 export const START_FETCHING_HORROR = 'START_FETCHING_HORROR';
 export const HORROR_FETCH_SUCCESS = 'HORROR_FETCH_SUCCESS';
@@ -57,37 +52,20 @@ export const START_FETCHING_REVIEWS = 'START_FETCHING_REVIEWS';
 export const REVIEWS_FETCH_SUCCESS = 'REVIEWS_FETCH_SUCCESS';
 export const REVIEWS_FETCH_FAILURE = 'REVIEWS_FETCH_FAILURE';
 
-export const fetchNowPlaying = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_NOW_PLAYING });
+export const fetchMovies = (type) => (dispatch) => {
+  dispatch({ type: START_FETCHING_MOVIES });
   axios
-    .get(`${URL}movie/now_playing?api_key=${KEY}`)
+    .get(`${URL}movie/${type}?api_key=${KEY}`)
     .then((res) => {
       dispatch({
-        type: NOW_PLAYING_FETCH_SUCCESS,
+        type: MOVIES_FETCH_SUCCESS,
         payload: res.data.results,
+        movie_type: `${type}`,
       });
     })
     .catch((err) =>
       dispatch({
-        type: NOW_PLAYING_FETCH_FAILURE,
-        payload: err.response,
-      })
-    );
-};
-
-export const fetchTopRated = () => (dispatch) => {
-  dispatch({ type: START_FETCHING_TOP_RATED });
-  axios
-    .get(`${URL}movie/top_rated?api_key=${KEY}`)
-    .then((res) => {
-      dispatch({
-        type: TOP_RATED_FETCH_SUCCESS,
-        payload: res.data.results,
-      });
-    })
-    .catch((err) =>
-      dispatch({
-        type: TOP_RATED_FETCH_FAILURE,
+        type: MOVIES_FETCH_FAILURE,
         payload: err.response,
       })
     );

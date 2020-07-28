@@ -7,8 +7,7 @@ import Home from './Home';
 
 import { connect } from 'react-redux';
 import {
-  fetchNowPlaying,
-  fetchTopRated,
+  fetchMovies,
   fetchHorror,
   fetchAction,
   fetchComedy,
@@ -21,8 +20,10 @@ import {
 
 function MovieData(data) {
   useEffect(() => {
-    data.fetchNowPlaying();
-    data.fetchTopRated();
+    data.fetchMovies('now_playing');
+    data.fetchMovies('top_rated');
+    // data.fetchNowPlaying();
+    // data.fetchTopRated();
     data.fetchHorror();
     data.fetchAction();
     data.fetchComedy();
@@ -122,8 +123,7 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  fetchNowPlaying,
-  fetchTopRated,
+  fetchMovies,
   fetchHorror,
   fetchAction,
   fetchComedy,

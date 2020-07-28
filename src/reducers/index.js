@@ -1,10 +1,7 @@
 import {
-  START_FETCHING_NOW_PLAYING,
-  NOW_PLAYING_FETCH_SUCCESS,
-  NOW_PLAYING_FETCH_FAILURE,
-  START_FETCHING_TOP_RATED,
-  TOP_RATED_FETCH_SUCCESS,
-  TOP_RATED_FETCH_FAILURE,
+  START_FETCHING_MOVIES,
+  MOVIES_FETCH_SUCCESS,
+  MOVIES_FETCH_FAILURE,
   START_FETCHING_HORROR,
   HORROR_FETCH_SUCCESS,
   HORROR_FETCH_FAILURE,
@@ -65,39 +62,20 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case START_FETCHING_NOW_PLAYING:
+    case START_FETCHING_MOVIES:
       return {
         ...state,
         isFetching: true,
         error: '',
       };
-    case NOW_PLAYING_FETCH_SUCCESS:
+    case MOVIES_FETCH_SUCCESS:
       return {
         ...state,
         isFetching: false,
         error: '',
-        now_playing: action.payload,
+        [action.movie_type]: action.payload,
       };
-    case NOW_PLAYING_FETCH_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-        isFetching: false,
-      };
-    case START_FETCHING_TOP_RATED:
-      return {
-        ...state,
-        isFetching: true,
-        error: '',
-      };
-    case TOP_RATED_FETCH_SUCCESS:
-      return {
-        ...state,
-        isFetching: false,
-        error: '',
-        top_rated: action.payload,
-      };
-    case TOP_RATED_FETCH_FAILURE:
+    case MOVIES_FETCH_FAILURE:
       return {
         ...state,
         error: action.payload,

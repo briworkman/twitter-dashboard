@@ -119,7 +119,7 @@ export const fetchSimilar = (id) => (dispatch) => {
 export const fetchReviews = (id) => (dispatch) => {
   dispatch({ type: START_FETCHING_REVIEWS });
   axios
-    .get(`${URL}movie/${id}/similar?api_key=${KEY}`)
+    .get(`${URL}movie/${id}/reviews?api_key=${KEY}`)
     .then((res) => {
       console.log(res);
       dispatch({

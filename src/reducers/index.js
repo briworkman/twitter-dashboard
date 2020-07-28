@@ -147,7 +147,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         error: '',
-        sreviews: action.payload,
+        reviews: action.payload,
       };
     case REVIEWS_FETCH_FAILURE:
       return {

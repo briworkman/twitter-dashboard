@@ -9,8 +9,6 @@ function SimilarMovies(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log('SIMILAR: ', props.similar);
-
   return (
     <div>
       {props.similar.length > 0 ? (

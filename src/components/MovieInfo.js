@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
-import { fetchMovieInfo } from '../actions';
+import { fetchMovieInfo, fetchSimilar } from '../actions';
 import { IMG_URL, BACKDROP_SIZE, POSTER_SIZE } from '../utils/config';
 
 import MovieInfoBar from './MovieInfoBar';
@@ -71,6 +71,7 @@ function MovieInfo(props) {
 
   useEffect(() => {
     props.fetchMovieInfo(id);
+    props.fetchSimilar(id);
   }, [id]);
 
   let movieInfo = props.info;
@@ -130,7 +131,7 @@ function MovieInfo(props) {
         budget={movieInfo.budget}
         revenue={movieInfo.revenue}
       />
-      <SimilarMovies id={id} />
+      <SimilarMovies id={id} similar={props.similar} />
       <MovieReviews id={id} />
     </div>
   );
@@ -139,9 +140,11 @@ function MovieInfo(props) {
 const mapStateToProps = (state) => {
   return {
     info: state.info,
+    similar: state.similar,
   };
 };
 
 export default connect(mapStateToProps, {
   fetchMovieInfo,
+  fetchSimilar,
 })(MovieInfo);

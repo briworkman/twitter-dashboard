@@ -2,10 +2,11 @@ import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { format } from '../utils/helpers';
-import { IMG_URL } from '../utils/config';
+import { IMG_URL, POSTER_SIZE } from '../utils/config';
 
 import { NavLink, Route } from 'react-router-dom';
 import MovieInfo from './MovieInfo';
+import MovieThumb from './MovieThumb';
 
 function Movies(props) {
   let data = props.movie_data.data;
@@ -22,7 +23,12 @@ function Movies(props) {
                   <NavLink
                     to={{ pathname: `/movie/${data.id}`, props: { data } }}
                   >
-                    <img src={poster} alt='movie poster' />
+                    <MovieThumb
+                      id={data.id}
+                      IMG_URL={IMG_URL}
+                      POSTER_SIZE={POSTER_SIZE}
+                      poster_path={data.poster_path}
+                    />
                   </NavLink>
                   <Route
                     exact

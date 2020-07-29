@@ -1,14 +1,8 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { fetchSimilar } from '../actions';
+import React from 'react';
+import MovieThumb from './MovieThumb';
 import { IMG_URL, POSTER_SIZE } from '../utils/config';
 
 function SimilarMovies(props) {
-  useEffect(() => {
-    props.fetchSimilar(props.id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <div>
       {props.similar.length > 0 ? (
@@ -16,12 +10,14 @@ function SimilarMovies(props) {
           <h2 className='similar-title'>SIMILAR MOVIES</h2>
           <div className='movies'>
             {props.similar.map((similar) => {
-              let poster = `${IMG_URL}${POSTER_SIZE}${similar.poster_path}`;
               return (
                 <div key={similar.id}>
-                  <div className='similarposter-container'>
-                    <img src={poster} alt='movie poster' />
-                  </div>
+                  <MovieThumb
+                    id={similar.id}
+                    IMG_URL={IMG_URL}
+                    POSTER_SIZE={POSTER_SIZE}
+                    poster_path={similar.poster_path}
+                  />
                 </div>
               );
             })}
@@ -32,12 +28,4 @@ function SimilarMovies(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    similar: state.similar,
-  };
-};
-
-export default connect(mapStateToProps, {
-  fetchSimilar,
-})(SimilarMovies);
+export default SimilarMovies;

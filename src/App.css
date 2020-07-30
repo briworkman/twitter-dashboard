@@ -67,7 +67,7 @@ code {
   letter-spacing: -30px;
 }
 
-.poster-container:hover {
+.movie-container:hover {
   opacity: 0.5;
   cursor: pointer;
 }

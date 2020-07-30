@@ -78,8 +78,8 @@ function Movies(props) {
                   {trending ? null : (
                     <div className='movie-data'>
                       <h3 className='movie-title'>
-                        {movieData.title.length > 33
-                          ? movieData.title.substring(0, 33, 3) + '...'
+                        {movieData.title.length > 15
+                          ? movieData.title.substring(0, 15, 3) + '...'
                           : movieData.title}
                       </h3>
                       <p>{format(movieData.release_date)}</p>

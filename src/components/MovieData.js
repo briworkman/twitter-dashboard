@@ -25,18 +25,12 @@ function MovieData(data) {
   }, []);
 
   let hero_image = data.trending_today[0];
-  let trending = [];
-  if (data.trending_today.length > 0) {
-    trending = data.trending_today.splice(0, 10);
-  }
-
-  console.log(trending);
 
   let movie_data = [
     {
       id: 1,
       title: 'Trending Today',
-      data: trending,
+      data: data.trending_today,
     },
     {
       id: 2,

@@ -7,7 +7,7 @@ function Home(props) {
     <div>
       {props.movies.map((movie) => {
         return (
-          <div key={movie.id} className='movie-container'>
+          <div key={movie.id} className='home-container'>
             <h2 className='title'>{movie.title.toUpperCase()}</h2>
             <Movies movie_data={movie} title={movie.title} />
             <div className='spacer'></div>

@@ -5,7 +5,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0d0d0d;
+  background-color: #151515;
 }
 
 code {
@@ -16,7 +16,7 @@ code {
   text-align: center;
 }
 
-.movie-container {
+.home-container {
   text-align: left;
   margin-top: 40px;
 }
@@ -47,9 +47,22 @@ code {
   margin-left: 20px;
 }
 
-.poster-container,
-.similarposter-container {
+.movie-container {
   display: flex;
+  align-items: center;
+}
+
+.poster-container {
+  display: flex;
+}
+
+.trending-count {
+  color: black;
+  font-size: 300px;
+  margin: 0;
+  -webkit-text-stroke: 5px #595959;
+  margin-right: -50px;
+  letter-spacing: -30px;
 }
 
 .poster-container:hover {

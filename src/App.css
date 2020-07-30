@@ -57,11 +57,13 @@ code {
 }
 
 .trending-count {
+  height: 300px;
   color: black;
   font-size: 300px;
   margin: 0;
   -webkit-text-stroke: 5px #595959;
   margin-right: -50px;
+  margin-top: -45px;
   letter-spacing: -30px;
 }
 

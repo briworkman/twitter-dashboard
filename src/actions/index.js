@@ -121,7 +121,6 @@ export const fetchReviews = (id) => (dispatch) => {
   axios
     .get(`${URL}movie/${id}/reviews?api_key=${KEY}`)
     .then((res) => {
-      console.log(res);
       dispatch({
         type: REVIEWS_FETCH_SUCCESS,
         payload: res.data.results,

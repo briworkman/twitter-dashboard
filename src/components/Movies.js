@@ -10,30 +10,47 @@ import MovieThumb from './MovieThumb';
 
 function Movies(props) {
   let data = props.movie_data.data;
+  let trending = null;
+  let index = 0;
+
+  if (props.title === 'Trending Today') {
+    trending = props.title;
+  }
 
   return (
     <div className='movies'>
       {data.length >= 1
-        ? data.map((data) => {
-            let vote_average = Math.floor((data.vote_average / 10) * 100);
+        ? data.map((movieData) => {
+            let vote_average = Math.floor((movieData.vote_average / 10) * 100);
+            if (trending) {
+              index = data.indexOf(movieData);
+            }
             return (
-              <div key={data.id}>
+              <div key={movieData.id}>
                 <div className='poster-container'>
+                  <p>{trending ? index + 1 : null}</p>
                   <NavLink
-                    to={{ pathname: `/movie/${data.id}`, props: { data } }}
+                    to={{
+                      pathname: `/movie/${movieData.id}`,
+                      props: { movieData },
+                    }}
                   >
                     <MovieThumb
-                      id={data.id}
+                      id={movieData.id}
                       IMG_URL={IMG_URL}
                       POSTER_SIZE={POSTER_SIZE}
-                      poster_path={data.poster_path}
+                      poster_path={movieData.poster_path}
                     />
                   </NavLink>
                   <Route
                     exact
                     path='/movie/:id'
                     render={(props) => (
-                      <MovieInfo {...props} movie={data} key={data.id} />
+                      <MovieInfo
+                        {...props}
+                        movie={movieData}
+                        key={movieData.id}
+                      />
                     )}
                   />
                   <div className='rating'>
@@ -57,11 +74,11 @@ function Movies(props) {
                 </div>
                 <div className='movie-data'>
                   <h3 className='movie-title'>
-                    {data.title.length > 33
-                      ? data.title.substring(0, 33, 3) + '...'
-                      : data.title}
+                    {movieData.title.length > 33
+                      ? movieData.title.substring(0, 33, 3) + '...'
+                      : movieData.title}
                   </h3>
-                  <p>{format(data.release_date)}</p>
+                  <p>{format(movieData.release_date)}</p>
                 </div>
               </div>
             );

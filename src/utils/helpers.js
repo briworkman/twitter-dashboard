@@ -1,4 +1,5 @@
 export const format = (date) => {
+  // eslint-disable-next-line
   var pattern = /(\d{4})\-(\d{2})\-(\d{2})/;
   if (!date || !date.match(pattern)) {
     return null;

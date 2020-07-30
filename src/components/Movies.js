@@ -15,7 +15,6 @@ function Movies(props) {
     <div className='movies'>
       {data.length >= 1
         ? data.map((data) => {
-            let poster = `${IMG_URL}w500${data.poster_path}`;
             let vote_average = Math.floor((data.vote_average / 10) * 100);
             return (
               <div key={data.id}>

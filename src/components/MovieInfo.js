@@ -66,15 +66,17 @@ const StyledMovieThumb = styled.div`
   }
 `;
 
-function MovieInfo(props) {
-  let id = props.match.params.id;
+function MovieInfo(info) {
+  let id = info.match.params.id;
 
   useEffect(() => {
-    props.fetchMovieInfo(id);
-    props.fetchSimilar(id);
+    info.fetchMovieInfo(id);
+    info.fetchSimilar(id);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  let movieInfo = props.info;
+  let movieInfo = info.info;
 
   return (
     <div>
@@ -131,7 +133,7 @@ function MovieInfo(props) {
         budget={movieInfo.budget}
         revenue={movieInfo.revenue}
       />
-      <SimilarMovies id={id} similar={props.similar} />
+      <SimilarMovies id={id} similar={info.similar} />
       <MovieReviews id={id} />
     </div>
   );

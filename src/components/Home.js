@@ -9,7 +9,7 @@ function Home(props) {
         return (
           <div key={movie.id} className='movie-container'>
             <h2 className='title'>{movie.title.toUpperCase()}</h2>
-            <Movies movie_data={movie} />
+            <Movies movie_data={movie} title={movie.title} />
             <div className='spacer'></div>
           </div>
         );

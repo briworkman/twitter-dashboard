@@ -216,6 +216,34 @@ code {
   height: 30px;
 }
 
+.review-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-flex {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.reviews {
+  background-color: black;
+  padding: 10px;
+  color: #ffffff;
+  width: 29%;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -8px rgba(102, 102, 102, 0.4);
+}
+
+.reviews a {
+  color: #595959;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
   .movieinfo-thumb {
     width: 100% !important;

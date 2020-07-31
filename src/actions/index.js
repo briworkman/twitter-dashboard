@@ -109,7 +109,7 @@ export const fetchCredits = (id) => (dispatch) => {
     .then((res) => {
       dispatch({
         type: CREDITS_FETCH_SUCCESS,
-        payload: res.data,
+        payload: res.data.cast,
       });
     })
     .catch((err) =>

@@ -6,6 +6,7 @@ import { IMG_URL, BACKDROP_SIZE, POSTER_SIZE } from '../utils/config';
 
 import MovieInfoBar from './MovieInfoBar';
 import SimilarMovies from './SimilarMovies';
+import MovieCredits from './MovieCredits';
 import MovieReviews from './MovieReviews';
 
 import styled from 'styled-components';
@@ -134,6 +135,7 @@ function MovieInfo(info) {
         revenue={movieInfo.revenue}
       />
       <SimilarMovies id={id} similar={info.similar} />
+      <MovieCredits id={id} />
       <MovieReviews id={id} />
     </div>
   );

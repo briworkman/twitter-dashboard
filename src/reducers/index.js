@@ -37,7 +37,7 @@ const initialState = {
   trending_today: [],
   info: {},
   similar: [],
-  credits: {},
+  credits: [],
   reviews: [],
   isFetching: false,
   error: '',

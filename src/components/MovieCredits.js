@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchCredits } from '../actions';
+import { IMG_URL, POSTER_SIZE } from '../utils/config';
+import NoImage from '../assets/no_image.jpg';
 
 function MovieCredits(props) {
   useEffect(() => {
@@ -10,7 +12,22 @@ function MovieCredits(props) {
   console.log(props);
   return (
     <div>
-      <h1>Movie Credits</h1>
+      {props.credits.map((actors) => {
+        return (
+          <div>
+            <h2>{actors.name}</h2>
+            <img
+              src={
+                actors.profile_path
+                  ? `${IMG_URL}${POSTER_SIZE}${actors.profile_path}`
+                  : NoImage
+              }
+              alt='actor thumb'
+            />
+            <h4>{actors.character}</h4>
+          </div>
+        );
+      })}
     </div>
   );
 }

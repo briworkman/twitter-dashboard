@@ -6,7 +6,7 @@ import Hero from './Hero';
 import Home from './Home';
 
 import { connect } from 'react-redux';
-import { fetchMovies, fetchGenres, fetchTrending } from '../actions';
+import { fetchMovies, fetchGenres, fetchTrending } from '../actions/movies';
 
 function MovieData(data) {
   useEffect(() => {

@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchActorInfo } from '../actions/actors';
 
 function ActorInfo(props) {
   console.log('ACTOR PROPS: ', props);
@@ -10,4 +12,12 @@ function ActorInfo(props) {
   );
 }
 
-export default ActorInfo;
+const mapStateToProps = (state) => {
+  return {
+    actor: state.actor,
+  };
+};
+
+export default connect(mapStateToProps, {
+  fetchActorInfo,
+})(ActorInfo);

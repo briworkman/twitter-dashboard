@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { URL, KEY, GENRE } from '../utils/config';
+import { URL, KEY, GENRE } from '../../utils/config';
 export const START_FETCHING_MOVIES = 'START_FETCHING_MOVIES';
 export const MOVIES_FETCH_SUCCESS = 'MOVIES_FETCH_SUCCESS';
 export const MOVIES_FETCH_FAILURE = 'MOVIES_FETCH_FAILURE';

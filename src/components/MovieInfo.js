@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
-import { fetchMovieInfo, fetchSimilar } from '../actions';
+import { fetchMovieInfo, fetchSimilar } from '../actions/movies';
 import { IMG_URL, BACKDROP_SIZE, POSTER_SIZE } from '../utils/config';
 
 import MovieInfoBar from './MovieInfoBar';

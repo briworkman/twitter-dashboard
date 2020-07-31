@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchReviews } from '../actions';
+import { fetchReviews } from '../actions/movies';
 import reviews from '../assets/reviews.svg';
 
 function MovieReviews(props) {

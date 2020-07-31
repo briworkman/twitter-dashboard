@@ -20,7 +20,13 @@ import {
   START_FETCHING_REVIEWS,
   REVIEWS_FETCH_SUCCESS,
   REVIEWS_FETCH_FAILURE,
-} from '../actions';
+} from '../actions/movies';
+
+import {
+  START_FETCHING_ACTOR,
+  ACTOR_FETCH_SUCCESS,
+  ACTOR_FETCH_FAILURE,
+} from '../actions/actors';
 
 const initialState = {
   popular: [],
@@ -39,6 +45,7 @@ const initialState = {
   similar: [],
   credits: [],
   reviews: [],
+  actor: {},
   isFetching: false,
   error: '',
 };
@@ -173,6 +180,25 @@ const reducer = (state = initialState, action) => {
         reviews: action.payload,
       };
     case REVIEWS_FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false,
+      };
+    case START_FETCHING_ACTOR:
+      return {
+        ...state,
+        isFetching: true,
+        error: '',
+      };
+    case ACTOR_FETCH_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+        actor: action.payload,
+      };
+    case ACTOR_FETCH_FAILURE:
       return {
         ...state,
         error: action.payload,

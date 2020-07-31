@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchCredits } from '../actions';
+import { fetchCredits } from '../actions/movies';
 import { IMG_URL, POSTER_SIZE } from '../utils/config';
 import NoImage from '../assets/no_image.jpg';
 import { NavLink, Route } from 'react-router-dom';
@@ -11,7 +11,6 @@ function MovieCredits(props) {
     props.fetchCredits(props.id);
   }, []);
 
-  console.log(props);
   return (
     <div>
       <h2 className='similar-title'>ACTORS</h2>

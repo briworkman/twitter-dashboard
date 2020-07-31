@@ -14,7 +14,7 @@ function MovieCredits(props) {
     <div>
       {props.credits.map((actors) => {
         return (
-          <div>
+          <div key={actors.id}>
             <h2>{actors.name}</h2>
             <img
               src={

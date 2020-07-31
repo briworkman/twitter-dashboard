@@ -26,6 +26,9 @@ import {
   START_FETCHING_ACTOR,
   ACTOR_FETCH_SUCCESS,
   ACTOR_FETCH_FAILURE,
+  START_FETCHING_ACTOR_MOVIES,
+  ACTOR_MOVIES_FETCH_SUCCESS,
+  ACTOR_MOVIES_FETCH_FAILURE,
 } from '../actions/actors';
 
 const initialState = {
@@ -46,6 +49,7 @@ const initialState = {
   credits: [],
   reviews: [],
   actor: {},
+  actor_movies: [],
   isFetching: false,
   error: '',
 };
@@ -199,6 +203,25 @@ const reducer = (state = initialState, action) => {
         actor: action.payload,
       };
     case ACTOR_FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false,
+      };
+    case START_FETCHING_ACTOR_MOVIES:
+      return {
+        ...state,
+        isFetching: true,
+        error: '',
+      };
+    case ACTOR_MOVIES_FETCH_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+        actor_movies: action.payload,
+      };
+    case ACTOR_MOVIES_FETCH_FAILURE:
       return {
         ...state,
         error: action.payload,

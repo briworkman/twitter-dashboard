@@ -25,6 +25,7 @@ code {
   color: white;
   margin-left: 20px;
   letter-spacing: 5px;
+  text-align: left;
 }
 
 .similar-title {
@@ -44,6 +45,24 @@ code {
 .movies img,
 .actors img {
   width: 150px;
+  border-radius: 10px;
+  margin: 10px;
+  margin-left: 20px;
+}
+
+.movie-list {
+  margin-bottom: -50px;
+}
+
+.movie-list img {
+  width: 150px;
+  border-radius: 10px;
+  margin: 10px;
+  margin-left: 20px;
+}
+
+.actor-info-img img {
+  width: 300px;
   border-radius: 10px;
   margin: 10px;
   margin-left: 20px;
@@ -100,14 +119,35 @@ code {
   );
 }
 
+.actor-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .movie-data,
 .actor-data {
   color: white;
   margin-left: 20px;
 }
 
+.actor-movies {
+  display: flex;
+}
+
+.actor-info {
+  display: flex;
+  text-align: left;
+  color: white;
+}
+
 .actor-data {
   text-align: left;
+  line-height: 0.5;
+  margin-bottom: 40px;
+}
+
+.biography {
+  margin-left: 20px;
 }
 
 .movie-title,

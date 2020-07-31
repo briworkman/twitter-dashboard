@@ -7,6 +7,16 @@ export const format = (date) => {
   return date.replace(pattern, '$2/$3/$1');
 };
 
+var MILLISECONDS_IN_A_YEAR = 1000 * 60 * 60 * 24 * 365;
+
+export const calcAge = (date) => {
+  var date_array = date.split('-');
+  var years_elapsed =
+    (new Date() - new Date(date_array[0], date_array[1], date_array[2])) /
+    MILLISECONDS_IN_A_YEAR;
+  return Math.floor(years_elapsed);
+};
+
 export const calcTime = (time) => {
   const hours = Math.floor(time / 60);
   const mins = time % 60;

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchActorInfo } from '../actions/actors';
 
 function ActorInfo(props) {
-  console.log('ACTOR PROPS: ', props);
+  let id = props.match.params.id;
+
+  useEffect(() => {
+    props.fetchActorInfo(id);
+  }, []);
+
+  console.log('ACTOR PROPS: ', props.actor);
   return (
     <div>
       <h1>{props.match.params.id}</h1>

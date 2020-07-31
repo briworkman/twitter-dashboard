@@ -14,6 +14,9 @@ import {
   START_FETCHING_SIMILAR,
   SIMILAR_FETCH_SUCCESS,
   SIMILAR_FETCH_FAILURE,
+  START_FETCHING_CREDITS,
+  CREDITS_FETCH_SUCCESS,
+  CREDITS_FETCH_FAILURE,
   START_FETCHING_REVIEWS,
   REVIEWS_FETCH_SUCCESS,
   REVIEWS_FETCH_FAILURE,
@@ -34,6 +37,7 @@ const initialState = {
   trending_today: [],
   info: {},
   similar: [],
+  credits: {},
   reviews: [],
   isFetching: false,
   error: '',
@@ -131,6 +135,25 @@ const reducer = (state = initialState, action) => {
         similar: action.payload,
       };
     case SIMILAR_FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false,
+      };
+    case START_FETCHING_CREDITS:
+      return {
+        ...state,
+        isFetching: true,
+        error: '',
+      };
+    case CREDITS_FETCH_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+        credits: action.payload,
+      };
+    case CREDITS_FETCH_FAILURE:
       return {
         ...state,
         error: action.payload,

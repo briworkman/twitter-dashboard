@@ -20,6 +20,10 @@ export const START_FETCHING_SIMILAR = 'START_FETCHING_SIMILAR';
 export const SIMILAR_FETCH_SUCCESS = 'SIMILAR_FETCH_SUCCESS';
 export const SIMILAR_FETCH_FAILURE = 'SIMILAR_FETCH_FAILURE';
 
+export const START_FETCHING_CREDITS = 'START_FETCHING_CREDITS';
+export const CREDITS_FETCH_SUCCESS = 'CREDITS_FETCH_SUCCESS';
+export const CREDITS_FETCH_FAILURE = 'CREDITS_FETCH_FAILURE';
+
 export const START_FETCHING_REVIEWS = 'START_FETCHING_REVIEWS';
 export const REVIEWS_FETCH_SUCCESS = 'REVIEWS_FETCH_SUCCESS';
 export const REVIEWS_FETCH_FAILURE = 'REVIEWS_FETCH_FAILURE';
@@ -93,6 +97,24 @@ export const fetchMovieInfo = (id) => (dispatch) => {
     .catch((err) =>
       dispatch({
         type: INFO_FETCH_FAILURE,
+        payload: err.response,
+      })
+    );
+};
+
+export const fetchCredits = (id) => (dispatch) => {
+  dispatch({ type: START_FETCHING_CREDITS });
+  axios
+    .get(`${URL}movie/${id}/credits?api_key=${KEY}`)
+    .then((res) => {
+      dispatch({
+        type: CREDITS_FETCH_SUCCESS,
+        payload: res.data,
+      });
+    })
+    .catch((err) =>
+      dispatch({
+        type: CREDITS_FETCH_FAILURE,
         payload: err.response,
       })
     );

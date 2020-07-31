@@ -12,22 +12,27 @@ function MovieCredits(props) {
   console.log(props);
   return (
     <div>
-      {props.credits.map((actors) => {
-        return (
-          <div key={actors.id}>
-            <h2>{actors.name}</h2>
-            <img
-              src={
-                actors.profile_path
-                  ? `${IMG_URL}${POSTER_SIZE}${actors.profile_path}`
-                  : NoImage
-              }
-              alt='actor thumb'
-            />
-            <h4>{actors.character}</h4>
-          </div>
-        );
-      })}
+      <h2 className='similar-title'>ACTORS</h2>
+      <div className='actors'>
+        {props.credits.map((actors) => {
+          return (
+            <div key={actors.id}>
+              <img
+                src={
+                  actors.profile_path
+                    ? `${IMG_URL}${POSTER_SIZE}${actors.profile_path}`
+                    : NoImage
+                }
+                alt='actor thumb'
+              />
+              <div className='actor-data'>
+                <h3 className='actor-name'>{actors.name}</h3>
+                <p>{actors.character}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -24,6 +24,7 @@ function SimilarMovies(props) {
           </div>
         </div>
       ) : null}
+      <div className='spacer'></div>
     </div>
   );
 }

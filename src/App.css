@@ -34,13 +34,15 @@ code {
   text-align: left;
 }
 
-.movies {
+.movies,
+.actors {
   display: flex;
   overflow-y: none;
   margin-bottom: 50px;
 }
 
-.movies img {
+.movies img,
+.actors img {
   width: 150px;
   border-radius: 10px;
   margin: 10px;
@@ -98,12 +100,18 @@ code {
   );
 }
 
-.movie-data {
+.movie-data,
+.actor-data {
   color: white;
   margin-left: 20px;
 }
 
-.movie-title {
+.actor-data {
+  text-align: left;
+}
+
+.movie-title,
+.actor-name {
   margin-bottom: -10px;
 }
 

@@ -9,6 +9,7 @@ import ActorInfo from './ActorInfo';
 function MovieCredits(props) {
   useEffect(() => {
     props.fetchCredits(props.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

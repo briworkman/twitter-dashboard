@@ -13,14 +13,11 @@ function ActorInfo(props) {
   useEffect(() => {
     props.fetchActorInfo(id);
     props.fetchActorMovies(id);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   let actor = props.actor;
   let actor_movies = props.actor_movies;
-
-  console.log('ACTOR: ', actor);
-  console.log('ACTOR MOVIES: ', actor_movies);
-
   let known_for = actor_movies.cast
     ? actor_movies.cast.filter((movie) => movie.vote_average >= 7)
     : [];
@@ -43,14 +40,14 @@ function ActorInfo(props) {
           <div className='actor-movies'>
             {known_for.map((movies) => {
               return (
-                <div>
+                <div key={movies.id}>
                   <NavLink
                     to={{
                       pathname: `/movie/${movies.id}`,
                       props: { movies },
                     }}
                   >
-                    <div key={movies.id}>
+                    <div>
                       {movies.poster_path ? (
                         <div className='movie-list'>
                           <img

@@ -8,6 +8,8 @@ import { NavLink, Route } from 'react-router-dom';
 import MovieInfo from './MovieInfo';
 import MovieThumb from './MovieThumb';
 
+import NoImage from '../assets/no_image.jpg';
+
 function Movies(props) {
   let data = props.movie_data.data;
   let trending = undefined;
@@ -38,12 +40,16 @@ function Movies(props) {
                         props: { movieData },
                       }}
                     >
-                      <MovieThumb
-                        id={movieData.id}
-                        IMG_URL={IMG_URL}
-                        POSTER_SIZE={POSTER_SIZE}
-                        poster_path={movieData.poster_path}
-                      />
+                      {movieData.poster_path ? (
+                        <MovieThumb
+                          id={movieData.id}
+                          IMG_URL={IMG_URL}
+                          POSTER_SIZE={POSTER_SIZE}
+                          poster_path={movieData.poster_path}
+                        />
+                      ) : (
+                        <img src={NoImage} alt='not found' />
+                      )}
                     </NavLink>
                     <Route
                       exact

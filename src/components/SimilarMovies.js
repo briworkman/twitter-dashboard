@@ -1,7 +1,6 @@
 import React from 'react';
 import MovieThumb from './MovieThumb';
 import { IMG_URL, POSTER_SIZE } from '../utils/config';
-import NoImage from '../assets/no_image.jpg';
 
 function SimilarMovies(props) {
   return (

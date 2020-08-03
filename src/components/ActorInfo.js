@@ -19,7 +19,7 @@ function ActorInfo(props) {
   let actor = props.actor;
   let actor_movies = props.actor_movies;
   let known_for = actor_movies.cast
-    ? actor_movies.cast.filter((movie) => movie.vote_average >= 7)
+    ? actor_movies.cast.filter((movie) => movie.popularity >= 20)
     : [];
 
   return (

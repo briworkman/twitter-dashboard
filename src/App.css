@@ -292,6 +292,33 @@ code {
   text-decoration: none;
 }
 
+.acting-list-container {
+  background-color: #ffffff;
+}
+
+.acting-list {
+  display: flex;
+}
+
+.acting-list h3 {
+  color: black;
+}
+
+.as {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 18.5px;
+}
+
+.as-character {
+  font-size: 18.5px;
+}
+
+.bullet {
+  width: 14px;
+  margin: 0px 20px 0px 20px;
+}
 @media screen and (max-width: 768px) {
   .movieinfo-thumb {
     width: 100% !important;

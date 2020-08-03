@@ -39,6 +39,7 @@ function Movies(props) {
                         pathname: `/movie/${movieData.id}`,
                         props: { movieData },
                       }}
+                      style={{ textDecoration: 'none' }}
                     >
                       {movieData.poster_path ? (
                         <MovieThumb

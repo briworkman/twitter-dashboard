@@ -40,12 +40,13 @@ function ActorInfo(props) {
           <div className='actor-movies'>
             {known_for.map((movies) => {
               return (
-                <div key={movies.id}>
+                <div key={movies.id} className='movie-container'>
                   <NavLink
                     to={{
                       pathname: `/movie/${movies.id}`,
                       props: { movies },
                     }}
+                    style={{ textDecoration: 'none' }}
                   >
                     <div>
                       {movies.poster_path ? (

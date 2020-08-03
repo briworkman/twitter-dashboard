@@ -18,12 +18,13 @@ function MovieCredits(props) {
       <div className='actors'>
         {props.credits.map((actors) => {
           return (
-            <div key={actors.id}>
+            <div key={actors.id} className='movie-container'>
               <NavLink
                 to={{
                   pathname: `/actor/${actors.id}`,
                   props: { actors },
                 }}
+                style={{ textDecoration: 'none' }}
               >
                 <img
                   src={

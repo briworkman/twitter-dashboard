@@ -50,7 +50,7 @@ const initialState = {
   reviews: [],
   actor: {},
   actor_movies: [],
-  isFetching: false,
+  isLoading: false,
   error: '',
 };
 
@@ -59,13 +59,13 @@ const reducer = (state = initialState, action) => {
     case START_FETCHING_MOVIES:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         error: '',
       };
     case MOVIES_FETCH_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         error: '',
         [action.movie_type]: action.payload,
       };
@@ -73,18 +73,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        isFetching: false,
+        isLoading: false,
       };
     case START_FETCHING_GENRES:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         error: '',
       };
     case GENRES_FETCH_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         error: '',
         [action.genre_type]: action.payload,
       };
@@ -92,18 +92,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        isFetching: false,
+        isLoading: false,
       };
     case START_FETCHING_TRENDING:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         error: '',
       };
     case TRENDING_FETCH_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         error: '',
         trending_today: action.payload,
       };
@@ -111,18 +111,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        isFetching: false,
+        isLoading: false,
       };
     case START_FETCHING_INFO:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         error: '',
       };
     case INFO_FETCH_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         error: '',
         info: action.payload,
       };
@@ -130,18 +130,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        isFetching: false,
+        isLoading: false,
       };
     case START_FETCHING_SIMILAR:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         error: '',
       };
     case SIMILAR_FETCH_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         error: '',
         similar: action.payload,
       };
@@ -149,18 +149,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        isFetching: false,
+        isLoading: false,
       };
     case START_FETCHING_CREDITS:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         error: '',
       };
     case CREDITS_FETCH_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         error: '',
         credits: action.payload,
       };
@@ -168,18 +168,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        isFetching: false,
+        isLoading: false,
       };
     case START_FETCHING_REVIEWS:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         error: '',
       };
     case REVIEWS_FETCH_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         error: '',
         reviews: action.payload,
       };
@@ -187,18 +187,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        isFetching: false,
+        isLoading: false,
       };
     case START_FETCHING_ACTOR:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         error: '',
       };
     case ACTOR_FETCH_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         error: '',
         actor: action.payload,
       };
@@ -206,18 +206,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        isFetching: false,
+        isLoading: false,
       };
     case START_FETCHING_ACTOR_MOVIES:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         error: '',
       };
     case ACTOR_MOVIES_FETCH_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         error: '',
         actor_movies: action.payload,
       };
@@ -225,7 +225,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        isFetching: false,
+        isLoading: false,
       };
     default:
       return state;

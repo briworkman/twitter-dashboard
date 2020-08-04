@@ -16,6 +16,13 @@ code {
   text-align: center;
 }
 
+.logo {
+  width: 75px;
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+
 .home-container {
   text-align: left;
   margin-top: 40px;

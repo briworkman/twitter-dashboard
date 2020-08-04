@@ -17,6 +17,12 @@ export const calcAge = (date) => {
   return Math.floor(years_elapsed);
 };
 
+export const findYear = (date) => {
+  var date_array = date.split('-');
+  var year = date_array[0];
+  return Math.floor(year);
+};
+
 export const calcTime = (time) => {
   const hours = Math.floor(time / 60);
   const mins = time % 60;

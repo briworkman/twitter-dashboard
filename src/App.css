@@ -61,6 +61,11 @@ code {
   margin-left: 20px;
 }
 
+.actor-info-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
 .actor-info-img img {
   width: 300px;
   border-radius: 10px;
@@ -294,6 +299,12 @@ code {
 
 .acting-list-container {
   background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -8px rgba(102, 102, 102, 0.4);
+}
+
+.movie-list-component {
+  width: 72.5%;
 }
 
 .acting-list {
@@ -313,6 +324,11 @@ code {
 
 .as-character {
   font-size: 18.5px;
+}
+
+.release-date {
+  font-size: 18.5px;
+  margin-left: 20px;
 }
 
 .bullet {

@@ -72,32 +72,36 @@ function ActorInfo(props) {
           </div>
         </div>
       </div>
-      <div>
-        <h2 className='title'>PERSONAL INFO</h2>
-        <div className='actor-data'>
-          <h3>Known For</h3>
-          <p>{actor.known_for_department}</p>
-        </div>
-        <div className='actor-data'>
-          <h3>Gender</h3>
-          <p>{actor.gender === 2 ? 'Male' : 'Female'}</p>
-        </div>
-        {actor.birthday ? (
+      <div className='actor-info-bottom'>
+        <div>
+          <h2 className='title'>PERSONAL INFO</h2>
           <div className='actor-data'>
-            <h3>Birthday</h3>
-            <p>
-              {format(actor.birthday)} (
-              {actor.birthday ? calcAge(actor.birthday) : null} years old)
-            </p>
+            <h3>Known For</h3>
+            <p>{actor.known_for_department}</p>
           </div>
-        ) : null}
-        {actor.place_of_birth ? (
           <div className='actor-data'>
-            <h3>Place of Birth</h3>
-            <p>{actor.place_of_birth}</p>
+            <h3>Gender</h3>
+            <p>{actor.gender === 2 ? 'Male' : 'Female'}</p>
           </div>
-        ) : null}
-        <ActorMovieList list={actor_movies.cast} />
+          {actor.birthday ? (
+            <div className='actor-data'>
+              <h3>Birthday</h3>
+              <p>
+                {format(actor.birthday)} (
+                {actor.birthday ? calcAge(actor.birthday) : null} years old)
+              </p>
+            </div>
+          ) : null}
+          {actor.place_of_birth ? (
+            <div className='actor-data'>
+              <h3>Place of Birth</h3>
+              <p>{actor.place_of_birth}</p>
+            </div>
+          ) : null}
+        </div>
+        <div className='movie-list-component'>
+          <ActorMovieList list={actor_movies.cast} />
+        </div>
       </div>
     </div>
   );

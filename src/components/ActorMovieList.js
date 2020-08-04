@@ -2,18 +2,24 @@ import React from 'react';
 import circle from '../assets/circle-regular.svg';
 import { NavLink, Route } from 'react-router-dom';
 import MovieInfo from './MovieInfo';
+import { findYear } from '../utils/helpers';
 
 function ActorMovieList(props) {
   console.log('ACTOR MOVIE LIST', props);
 
   return (
     <div>
-      <h3>Acting</h3>
+      <h2 className='title'>ACTING</h2>
       <div className='acting-list-container'>
         {props.list
           ? props.list.map((acting) => {
               return (
                 <div key={acting.id} className='acting-list'>
+                  <p className='release-date'>
+                    {acting.release_date
+                      ? findYear(acting.release_date)
+                      : '--------'}
+                  </p>
                   <img src={circle} alt='bullet point' className='bullet' />
                   <div className='movie-container'>
                     <NavLink

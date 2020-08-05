@@ -17,6 +17,14 @@ export const calcAge = (date) => {
   return Math.floor(years_elapsed);
 };
 
+export const sortDates = (date) => {
+  date.sort(function (a, b) {
+    var c = new Date(a.release_date);
+    var d = new Date(b.release_date);
+    return d - c;
+  });
+};
+
 export const findYear = (date) => {
   var date_array = date.split('-');
   var year = date_array[0];

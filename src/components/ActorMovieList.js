@@ -2,17 +2,10 @@ import React from 'react';
 import circle from '../assets/circle-regular.svg';
 import { NavLink, Route } from 'react-router-dom';
 import MovieInfo from './MovieInfo';
-import { findYear } from '../utils/helpers';
+import { findYear, sortDates } from '../utils/helpers';
 
 function ActorMovieList(props) {
-  console.log('ACTOR MOVIE LIST', props.list);
-  props.list
-    ? props.list.sort(function (a, b) {
-        var c = new Date(a.release_date);
-        var d = new Date(b.release_date);
-        return d - c;
-      })
-    : console.log('loading...');
+  props.list ? sortDates(props.list) : console.log('loading...');
 
   return (
     <div>

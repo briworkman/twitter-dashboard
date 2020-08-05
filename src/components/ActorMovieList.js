@@ -5,7 +5,14 @@ import MovieInfo from './MovieInfo';
 import { findYear } from '../utils/helpers';
 
 function ActorMovieList(props) {
-  console.log('ACTOR MOVIE LIST', props);
+  console.log('ACTOR MOVIE LIST', props.list);
+  props.list
+    ? props.list.sort(function (a, b) {
+        var c = new Date(a.release_date);
+        var d = new Date(b.release_date);
+        return d - c;
+      })
+    : console.log('loading...');
 
   return (
     <div>

@@ -105,7 +105,7 @@ const mapStateToProps = (state) => {
     thriller: state.thriller,
     family: state.family,
     trending_today: state.trending_today,
-    isFetching: state.isFetching,
+    isLoading: state.isLoading,
     error: state.error,
   };
 };

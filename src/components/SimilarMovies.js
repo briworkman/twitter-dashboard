@@ -27,9 +27,6 @@ function SimilarMovies(props) {
   };
 
   const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
-    const {
-      carouselState: { currentSlide },
-    } = rest;
     return (
       <div className='similar-carousel-button-group'>
         <button className='previous-button' />
@@ -37,8 +34,14 @@ function SimilarMovies(props) {
           className='prev-img'
           src={chevronLeft}
           onClick={() => previous()}
+          alt='previous movie'
         />
-        <img src={chevronRight} className='next-img' onClick={() => next()} />
+        <img
+          src={chevronRight}
+          className='next-img'
+          onClick={() => next()}
+          alt='next movie'
+        />
       </div>
     );
   };

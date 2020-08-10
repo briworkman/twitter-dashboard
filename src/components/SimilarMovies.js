@@ -1,7 +1,7 @@
 import React from 'react';
 import MovieThumb from './MovieThumb';
 import { IMG_URL, POSTER_SIZE } from '../utils/config';
-import responsive, { ButtonGroup } from '../utils/helpers';
+import responsive, { SimilarButtonGroup } from '../utils/helpers';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -28,7 +28,7 @@ function SimilarMovies(props) {
             itemClass='carousel-item-padding-40-px'
             arrows={false}
             renderButtonGroupOutside={true}
-            customButtonGroup={<ButtonGroup />}
+            customButtonGroup={<SimilarButtonGroup />}
           >
             {props.similar.map((similar) => {
               return (

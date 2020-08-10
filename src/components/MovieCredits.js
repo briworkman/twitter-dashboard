@@ -36,7 +36,11 @@ function MovieCredits(props) {
                 />
                 <div className='actor-data'>
                   <h3 className='actor-name'>{actors.name}</h3>
-                  <p>{actors.character}</p>
+                  <p>
+                    {actors.character.length > 17
+                      ? actors.character.substring(0, 17, 3) + '...'
+                      : actors.character}
+                  </p>
                 </div>
               </NavLink>
               <Route

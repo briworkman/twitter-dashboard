@@ -89,3 +89,23 @@ export const ButtonGroup = ({ next, previous }) => {
     </div>
   );
 };
+
+export const SimilarButtonGroup = ({ next, previous }) => {
+  return (
+    <div className='similar-carousel-button-group'>
+      <button className='previous-button' />
+      <img
+        className='prev-img'
+        src={chevronLeft}
+        onClick={() => previous()}
+        alt='previous movie'
+      />
+      <img
+        src={chevronRight}
+        className='next-img'
+        onClick={() => next()}
+        alt='next movie'
+      />
+    </div>
+  );
+};

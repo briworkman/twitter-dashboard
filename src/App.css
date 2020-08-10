@@ -396,3 +396,13 @@ code {
 .next-img:hover {
   cursor: pointer;
 }
+
+.similar-carousel-button-group {
+  width: 100%;
+  position: absolute;
+  margin-top: -200px;
+}
+
+.similar-carousel-container {
+  margin-bottom: 50px;
+}

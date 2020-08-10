@@ -7,6 +7,7 @@ function MovieThumb(props) {
         <img
           src={`${props.IMG_URL}${props.POSTER_SIZE}${props.poster_path}`}
           alt='movie poster'
+          className='movie-poster'
         />
       </div>
     </div>

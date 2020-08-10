@@ -44,12 +44,12 @@ code {
 
 .movies,
 .actors {
-  display: flex;
-  overflow-x: scroll;
+  /* display: flex; */
+  /* overflow-x: none; */
   margin-bottom: 50px;
 }
 
-.movies img,
+.movie-poster,
 .actors img {
   width: 150px;
   border-radius: 10px;
@@ -365,4 +365,8 @@ code {
   width: 80px;
   padding: 20px;
   text-align: center;
+}
+
+.car-item {
+  color: white;
 }

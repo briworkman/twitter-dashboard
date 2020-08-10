@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieThumb from './MovieThumb';
 import { IMG_URL, POSTER_SIZE } from '../utils/config';
+import responsive from '../utils/helpers';
 
 import chevronLeft from '../assets/chevron-circle-left-solid.svg';
 import chevronRight from '../assets/chevron-circle-right-solid.svg';
@@ -8,25 +9,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 function SimilarMovies(props) {
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1275 },
-      items: 7,
-      slidesToSlide: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1275, min: 464 },
-      items: 4,
-      slidesToSlide: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-  };
-
-  const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
+  const ButtonGroup = ({ next, previous, goToSlide }) => {
     return (
       <div className='similar-carousel-button-group'>
         <button className='previous-button' />

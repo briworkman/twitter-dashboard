@@ -45,3 +45,23 @@ export const convertMoney = (money) => {
   });
   return formatter.format(money);
 };
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1275 },
+    items: 7,
+    slidesToSlide: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1275, min: 464 },
+    items: 4,
+    slidesToSlide: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1,
+  },
+};
+
+export default responsive;

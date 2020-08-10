@@ -9,34 +9,12 @@ import MovieInfo from './MovieInfo';
 import MovieThumb from './MovieThumb';
 
 import NoImage from '../assets/no_image.jpg';
-import chevronLeft from '../assets/chevron-circle-left-solid.svg';
-import chevronRight from '../assets/chevron-circle-right-solid.svg';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import responsive from '../utils/helpers';
+import responsive, { ButtonGroup } from '../utils/helpers';
 
 function Movies(props) {
   let data = props.movie_data.data;
-
-  const ButtonGroup = ({ next, previous, goToSlide }) => {
-    return (
-      <div className='carousel-button-group'>
-        <button className='previous-button' />
-        <img
-          className='prev-img'
-          src={chevronLeft}
-          onClick={() => previous()}
-          alt='previous movie'
-        />
-        <img
-          src={chevronRight}
-          className='next-img'
-          onClick={() => next()}
-          alt='next movie'
-        />
-      </div>
-    );
-  };
 
   return (
     <Carousel

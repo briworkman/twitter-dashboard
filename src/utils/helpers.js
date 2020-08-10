@@ -1,3 +1,7 @@
+import React from 'react';
+import chevronLeft from '../assets/chevron-circle-left-solid.svg';
+import chevronRight from '../assets/chevron-circle-right-solid.svg';
+
 export const format = (date) => {
   // eslint-disable-next-line
   var pattern = /(\d{4})\-(\d{2})\-(\d{2})/;
@@ -65,3 +69,23 @@ const responsive = {
 };
 
 export default responsive;
+
+export const ButtonGroup = ({ next, previous }) => {
+  return (
+    <div className='carousel-button-group'>
+      <button className='previous-button' />
+      <img
+        className='prev-img'
+        src={chevronLeft}
+        onClick={() => previous()}
+        alt='previous movie'
+      />
+      <img
+        src={chevronRight}
+        className='next-img'
+        onClick={() => next()}
+        alt='next movie'
+      />
+    </div>
+  );
+};

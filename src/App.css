@@ -335,7 +335,7 @@ code {
 
 .bullet {
   width: 14px;
-  margin: 0px 20px 0px 20px;
+  margin: -50px 20px 0px 20px;
 }
 @media screen and (max-width: 768px) {
   .movieinfo-thumb {

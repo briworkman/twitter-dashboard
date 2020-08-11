@@ -39,16 +39,31 @@ const Search = (props) => {
         {props.search.map((movie) => {
           return (
             <div>
-              {movie.poster_path ? (
-                <MovieThumb
-                  id={movie.id}
-                  IMG_URL={IMG_URL}
-                  POSTER_SIZE={POSTER_SIZE}
-                  poster_path={movie.poster_path}
-                />
-              ) : (
-                <img src={NoImage} alt='not found' />
-              )}
+              <NavLink
+                to={{
+                  pathname: `/movie/${movie.id}`,
+                  props: { movie },
+                }}
+                style={{ textDecoration: 'none' }}
+              >
+                {movie.poster_path ? (
+                  <MovieThumb
+                    id={movie.id}
+                    IMG_URL={IMG_URL}
+                    POSTER_SIZE={POSTER_SIZE}
+                    poster_path={movie.poster_path}
+                  />
+                ) : (
+                  <img src={NoImage} alt='not found' className='movie-poster' />
+                )}
+              </NavLink>
+              <Route
+                exact
+                path='/movie/:id'
+                render={(props) => (
+                  <MovieInfo {...props} movie={movie} key={movie.id} />
+                )}
+              />
             </div>
           );
         })}

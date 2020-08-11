@@ -6,7 +6,6 @@ import { IMG_URL, POSTER_SIZE } from '../utils/config';
 import { NavLink, Route } from 'react-router-dom';
 import MovieInfo from './MovieInfo';
 import NoImage from '../assets/no_image.jpg';
-import search from '../assets/search.svg';
 
 const Search = (props) => {
   const [state, setState] = useState('');
@@ -23,8 +22,6 @@ const Search = (props) => {
       props.searchMovies(value);
     }, 500);
   };
-
-  console.log(props.search);
 
   return (
     <div>

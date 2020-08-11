@@ -411,3 +411,20 @@ code {
   justify-content: center;
   margin-top: 25px;
 }
+
+.input {
+  background-color: #444444;
+  color: #d94435;
+  border: none;
+  width: 400px;
+  height: 75px;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  outline: 0px;
+  border-width: 2px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 50px;
+}

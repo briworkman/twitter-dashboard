@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
+import { connect } from 'react-redux';
+import { searchMovies } from '../actions/movies';
 
-const SearchBar = () => {
+const Search = (props) => {
   const [state, setState] = useState('');
 
   const timeOut = useRef(null);
@@ -12,9 +14,11 @@ const SearchBar = () => {
     setState(value);
 
     timeOut.current = setTimeout(() => {
-      callback(value);
+      props.searchMovies(value);
     }, 500);
   };
+
+  console.log(props.search);
 
   return (
     <div>
@@ -30,4 +34,14 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+  return {
+    search: state.search,
+    isLoading: state.isLoading,
+    error: state.error,
+  };
+};
+
+export default connect(mapStateToProps, {
+  searchMovies,
+})(Search);

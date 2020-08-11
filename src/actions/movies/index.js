@@ -160,10 +160,10 @@ export const fetchReviews = (id) => (dispatch) => {
     );
 };
 
-export const search = (query) => (dispatch) => {
+export const searchMovies = (query) => (dispatch) => {
   dispatch({ type: START_SEARCH });
   axios
-    .get(`${URL}movie?api_key=${KEY}&query=${query}`)
+    .get(`${URL}search/movie?api_key=${KEY}&query=${query}`)
     .then((res) => {
       console.log('SEARCH RES: ', res);
       dispatch({

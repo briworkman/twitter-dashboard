@@ -28,6 +28,10 @@ export const START_FETCHING_REVIEWS = 'START_FETCHING_REVIEWS';
 export const REVIEWS_FETCH_SUCCESS = 'REVIEWS_FETCH_SUCCESS';
 export const REVIEWS_FETCH_FAILURE = 'REVIEWS_FETCH_FAILURE';
 
+export const START_SEARCH = 'START_SEARCH';
+export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
+export const SEARCH_FAILURE = 'SEARCH_FAILURE';
+
 export const fetchMovies = (type) => (dispatch) => {
   dispatch({ type: START_FETCHING_MOVIES });
   axios
@@ -151,6 +155,25 @@ export const fetchReviews = (id) => (dispatch) => {
     .catch((err) =>
       dispatch({
         type: REVIEWS_FETCH_FAILURE,
+        payload: err.response,
+      })
+    );
+};
+
+export const search = (query) => (dispatch) => {
+  dispatch({ type: START_SEARCH });
+  axios
+    .get(`${URL}movie?api_key=${KEY}&query=${query}`)
+    .then((res) => {
+      console.log('SEARCH RES: ', res);
+      dispatch({
+        type: SEARCH_SUCCESS,
+        payload: res.data.results,
+      });
+    })
+    .catch((err) =>
+      dispatch({
+        type: SEARCH_FAILURE,
         payload: err.response,
       })
     );

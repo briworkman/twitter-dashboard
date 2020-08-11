@@ -20,6 +20,9 @@ import {
   START_FETCHING_REVIEWS,
   REVIEWS_FETCH_SUCCESS,
   REVIEWS_FETCH_FAILURE,
+  START_SEARCH,
+  SEARCH_SUCCESS,
+  SEARCH_FAILURE,
 } from '../actions/movies';
 
 import {
@@ -50,6 +53,7 @@ const initialState = {
   reviews: [],
   actor: {},
   actor_movies: [],
+  search: [],
   isLoading: false,
   error: '',
 };
@@ -222,6 +226,25 @@ const reducer = (state = initialState, action) => {
         actor_movies: action.payload,
       };
     case ACTOR_MOVIES_FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
+    case START_SEARCH:
+      return {
+        ...state,
+        isLoading: true,
+        error: '',
+      };
+    case SEARCH_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        error: '',
+        search: action.payload,
+      };
+    case SEARCH_FAILURE:
       return {
         ...state,
         error: action.payload,

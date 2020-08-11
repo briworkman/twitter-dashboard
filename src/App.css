@@ -404,3 +404,9 @@ code {
 .similar-carousel-container {
   margin-bottom: 50px;
 }
+
+.search-movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

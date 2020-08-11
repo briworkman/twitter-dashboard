@@ -165,7 +165,6 @@ export const searchMovies = (query) => (dispatch) => {
   axios
     .get(`${URL}search/movie?api_key=${KEY}&query=${query}`)
     .then((res) => {
-      console.log('SEARCH RES: ', res);
       dispatch({
         type: SEARCH_SUCCESS,
         payload: res.data.results,

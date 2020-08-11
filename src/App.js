@@ -14,9 +14,9 @@ function App() {
       <Link to={'/'}>
         <img src={logo} alt='logo' className='logo' />
       </Link>
-      <Search />
       <Switch>
         <Route exact path='/' component={MovieData} />
+        <Route exact path='/movies/search' component={Search} />
         <Route exact path='/movie/:id' component={MovieInfo} />
         <Route exact path='/actor/:id' component={ActorInfo} />
       </Switch>

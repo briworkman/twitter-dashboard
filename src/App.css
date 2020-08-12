@@ -16,11 +16,32 @@ code {
   text-align: center;
 }
 
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0px 20px;
+}
+
+.link:hover {
+  color: #d94435;
+}
+
 .logo {
   width: 75px;
   display: flex;
   justify-content: flex-end;
-  margin: 20px;
 }
 
 .home-container {

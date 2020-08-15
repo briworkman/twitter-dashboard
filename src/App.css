@@ -388,9 +388,10 @@ code {
 }
 
 .carousel-button-group {
-  width: 100%;
+  width: 97%;
   position: absolute;
   margin-top: -275px;
+  margin-left: 2%;
 }
 
 .prev-img,
@@ -417,9 +418,10 @@ code {
 }
 
 .similar-carousel-button-group {
-  width: 100%;
+  width: 97%;
   position: absolute;
   margin-top: -200px;
+  margin-left: 2%;
 }
 
 .similar-carousel-container {
